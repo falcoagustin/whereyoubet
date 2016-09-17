@@ -1,0 +1,44 @@
+$forestgreen: #228b22;
+.log-panel {
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -250px;
+  width:500px;
+  background:#f7f7f7;
+  .log-form {
+    padding: 5% 20%;
+    position: relative;
+    height: inherit;
+    label {
+      text-align: center;
+      display: block;
+    }
+    .log-row {
+      margin-top: 13%;
+      input[type="text"],
+      input[type="password"]{
+        display: block;
+        margin-left: 12%;
+        font-size: 17px;
+        width: 75%;
+        height: 35px;
+      }
+    }
+    .log-button {
+      margin-top: 10%;
+      padding: 5% 10%;
+      border: solid 1px;
+      border-radius: 15px;
+      background-color: $forestgreen;
+      width: 100%;
+      &:hover{
+        cursor:pointer;
+        transition: transform 500ms;
+        transform: scale(1.03);
+      }
+    }
+  }
+}

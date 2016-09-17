@@ -1,0 +1,60 @@
+$black: rgb(0, 0, 0);
+$white: #ffffff;
+$darkgray: lighten($black, 32%);
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.nav-bar {
+  background-color: #6699ff;
+  border-radius: 0 0 8px 2px;
+  box-shadow: 0 1px #888888;
+  position: fixed;
+  width: 100%;
+
+  .logo {
+    display: inline-block;
+    padding: 0.5%;
+    padding-left: 2%;
+    vertical-align: middle;
+
+    label {
+      &:hover {
+        transition: all 500ms;
+        color: #c2c2d6;
+        cursor: pointer;
+      }
+      color: $white;
+      font-size: 30px;
+    }
+  }
+  .options {
+    display: inline-block;
+    text-align: right;
+    width: calc(100% - 200px);
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        vertical-align: middle;
+        display:inline;
+        padding: 4%;
+
+        a {
+          &:hover {
+            transition: all 500ms;
+            color: #c2c2d6;
+            cursor: pointer;
+          }
+
+          color: $white;
+          display:inline;
+          text-align: left;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-var menuSelections = ['#homeMenu', '#logInMenu', '#createUserMenu'];
+var menuSelections = ['#homeMenu', '#logInMenu', '#signUpMenu'];
 
 function showSelectedMenu(selectedMenu) {
   for (var i = 0; i < menuSelections.length; i++) {

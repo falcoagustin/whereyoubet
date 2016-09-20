@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :articles
   resources :users
+  resources :teams
   post  '/users/login',  to: 'users#login'
   root 'welcome#index'
 

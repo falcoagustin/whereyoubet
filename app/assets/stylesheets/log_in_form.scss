@@ -1,4 +1,4 @@
-$forestgreen: #228b22;
+@import "colors";
 .log-panel {
   margin: 0 auto;
   position: absolute;
@@ -7,7 +7,7 @@ $forestgreen: #228b22;
   margin-left: -250px;
   margin-top: -250px;
   width:500px;
-  background:#f7f7f7;
+  background: $grey;
   .log-form {
     padding: 5% 20%;
     position: relative;

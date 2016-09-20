@@ -11,11 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918215814) do
+ActiveRecord::Schema.define(version: 20160920003756) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bets", force: :cascade do |t|
+    t.datetime "executed"
+    t.integer  "user_id"
+    t.float    "amount"
+    t.integer  "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bets", ["match_id"], name: "index_bets_on_match_id"
+  add_index "bets", ["user_id"], name: "index_bets_on_user_id"
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "time"
+    t.float    "local_ratio"
+    t.float    "visitor_ratio"
+    t.float    "tie_ratio"
+    t.integer  "local_team_id"
+    t.integer  "visitor_team_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

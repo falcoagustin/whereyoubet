@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  executed: 2016-09-19 21:37:56
+  user_id: 
+  amount: 1.5
+  match_id: 
+
+two:
+  executed: 2016-09-19 21:37:56
+  user_id: 
+  amount: 1.5
+  match_id: 

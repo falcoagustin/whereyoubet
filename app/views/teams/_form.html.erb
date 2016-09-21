@@ -1,12 +1,12 @@
 <h3> Create new team </h3>
 <%= form_for @team do |f| %>
   <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, :class => "bm-label" %><br>
+    <%= f.text_field :name, :class => "bm-input" %>
   </p>
   <p>
-    <%= f.label :country %><br>
-    <%= f.number_field :country_id %>
+    <%= f.label :country, :class =>"bm-label" %><br>
+    <%= f.number_field :country_id, :class => "bm-input" %>
   </p>
     <%= f.submit %>
 <% end %>

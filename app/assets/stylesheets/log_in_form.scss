@@ -12,20 +12,8 @@
     padding: 5% 20%;
     position: relative;
     height: inherit;
-    label {
-      text-align: center;
-      display: block;
-    }
     .log-row {
       margin-top: 13%;
-      input[type="text"],
-      input[type="password"]{
-        display: block;
-        margin-left: 12%;
-        font-size: 17px;
-        width: 75%;
-        height: 35px;
-      }
     }
     .log-button {
       margin-top: 10%;

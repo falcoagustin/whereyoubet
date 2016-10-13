@@ -1,14 +1,14 @@
 class TeamsController < ApplicationController
-  def new
-    @team = Team.new
+  def index
     @teams = Team.all
   end
 
   def create
     @team = Team.new(team_params)
     if @team.save
+      # FIXME: make an asyncronous call for creating not to get all the teams all the time.
       @teams = Team.all
-      render 'new'
+      render 'index'
     end
   end
 
@@ -16,7 +16,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
 
     if @team.update(team_params)
-      redirect_to 'new'
+      redirect_to 'index'
     # else
     #   render 'edit'
     end
@@ -25,7 +25,9 @@ class TeamsController < ApplicationController
   def destroy
     @team = Team.find(params[:id])
     @team.destroy
-    redirect_to 'new'
+    # FIXME: make an asyncronous call for creating not to get all the teams all the time.
+    @teams = Team.all
+    render 'index'
   end
   private
     def team_params

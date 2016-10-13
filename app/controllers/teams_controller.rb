@@ -6,9 +6,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      # FIXME: make an asyncronous call for creating not to get all the teams all the time.
-      @teams = Team.all
-      render 'index'
+      redirect_to :back
     end
   end
 
@@ -26,8 +24,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @team.destroy
     # FIXME: make an asyncronous call for creating not to get all the teams all the time.
-    @teams = Team.all
-    render 'index'
+    redirect_to :back
   end
   private
     def team_params

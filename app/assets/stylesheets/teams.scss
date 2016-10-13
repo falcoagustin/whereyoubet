@@ -2,18 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "colors";
- .team-panel {
+.team-panel {
    position: absolute;
    display: inline-block;
    left: 15%;
    top: 20%;
    background-color: $grey;
+   width: 70%;
+   text-align: center;
  }
 
 .team-create {
   display: inline-block;
+  width: 25%;
 }
 
 .teams-container {
   display: inline-block;
+  width: 75%;
+  margin-right: -4px;
+  vertical-align: top;
+}
+
+.teams-row {
+  height: 10%;
+  label {
+    font-size: 20px;
+  }
+  &:hover {
+    background-color: #F2F2F2;
+  }
 }

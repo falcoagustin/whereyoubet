@@ -1,9 +1,9 @@
 <div class="teams-container">
+  <h3 class="bm-title"> All Teams </h3>
     <% @teams.each do |team| %>
-      <div>
+      <div class="teams-row">
         <label> <%= team.name %> </label>
         <label> <%= team.country_id %> </label>
-        <!-- <%= link_to 'Edit', edit_team_path(team) %> -->
         <%= link_to 'Destroy', team_path(team),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>

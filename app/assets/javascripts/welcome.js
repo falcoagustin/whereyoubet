@@ -10,3 +10,7 @@ function showSelectedMenu(selectedMenu) {
     }
   }
 }
+
+function goToHome() {
+  window.location = "/";
+}

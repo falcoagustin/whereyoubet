@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015225652) do
+ActiveRecord::Schema.define(version: 20161015233405) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20161015225652) do
   create_table "bets", force: :cascade do |t|
     t.datetime "executed"
     t.integer  "user_id"
-    t.float    "amount"
     t.integer  "match_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -41,6 +40,7 @@ ActiveRecord::Schema.define(version: 20161015225652) do
     t.integer  "first_bet_id"
     t.integer  "second_bet_id"
     t.integer  "third_bet_id"
+    t.float    "amount"
   end
 
   create_table "countries", force: :cascade do |t|

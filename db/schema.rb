@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009213938) do
+ActiveRecord::Schema.define(version: 20161015225652) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -25,12 +25,23 @@ ActiveRecord::Schema.define(version: 20161009213938) do
     t.integer  "user_id"
     t.float    "amount"
     t.integer  "match_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "bet_on_local",   default: false, null: false
+    t.boolean  "bet_on_visitor", default: false, null: false
+    t.boolean  "bet_on_tie",     default: false, null: false
   end
 
   add_index "bets", ["match_id"], name: "index_bets_on_match_id"
   add_index "bets", ["user_id"], name: "index_bets_on_user_id"
+
+  create_table "complete_bets", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "first_bet_id"
+    t.integer  "second_bet_id"
+    t.integer  "third_bet_id"
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"

@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20161009213938) do
   add_index "bets", ["match_id"], name: "index_bets_on_match_id"
   add_index "bets", ["user_id"], name: "index_bets_on_user_id"
 
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "matches", force: :cascade do |t|
     t.datetime "time"
     t.float    "local_ratio"
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(version: 20161009213938) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "country_id"
   end
 
   create_table "users", force: :cascade do |t|

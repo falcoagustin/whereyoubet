@@ -1,0 +1,15 @@
+<div class="team-create">
+  <h3 class="bm-title"> Create new team </h3>
+  <%= form_for :team do |t| %>
+    <p>
+      <%= t.label :name, :class => "bm-label" %><br>
+      <%= t.text_field :name, :class => "bm-input" %>
+    </p>
+    <p>
+      <%= t.label :country, :class =>"bm-label" %><br>
+      <%= t.number_field :country_id, :class => "bm-input" %>
+    </p>
+    <!-- <button type="submit">Submit</button> -->
+    <%= t.submit %>
+  <% end %>
+</div>

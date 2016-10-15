@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :articles
   #resources :users
+  resources :teams
   #post  '/users/login',  to: 'users#login'
   root 'welcome#index'
 

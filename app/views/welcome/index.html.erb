@@ -2,12 +2,12 @@
   <header>
     <meta name="viewport" content="width=device-width">
   </header>
-  </body>
-    <%= render 'menu_bar' %>
+  <body>
+    <%= render 'menu_bar', :logged => false %>
   <div id="signUpMenu" hidden>
     <%= render 'log_in_form', :create => true %>
   </div>
-  <div id="logInMenu" hidden>
+  <div id="logInMenu">
     <%= render 'log_in_form', :create => false %>
   </div>
   </body>

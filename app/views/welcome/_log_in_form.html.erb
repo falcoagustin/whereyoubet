@@ -2,14 +2,14 @@
   <% if !create %>
     <%= form_tag("/users/sign_in", method: "post", class: "log-form") do %>
     <!--<form class="log-form" action="/users/sign_in" method="POST"> -->
-      <label>Log in</label>
+      <label class="bm-label">Log in</label>
       <div class="log-row">
-        <label>Email</label>
-        <input name="user[email]" type="text"/>
+        <label class="bm-label">Email</label>
+        <input class="bm-input"  name="user[email]" type="text"/>
       </div>
       <div class="log-row">
-        <label>Password</label>
-        <input name="user[password]" type="password"/>
+        <label class="bm-label">Password</label>
+        <input class="bm-input" name="user[password]" type="password"/>
       </div>
       <input name="commit" type="hidden" value="Log in">
       <div class="log-row">
@@ -20,18 +20,18 @@
   <% else %>
     <!-- <form class="log-form" action="/users" method="POST"> -->
     <%= form_tag("/users", method: "post", class: "log-form") do %>
-      <label>Create new user</label>
+      <label class="bm-label">Create new user</label>
       <div class="log-row">
-        <label>Email</label>
-        <input name="user[email]" type="text"/>
+        <label class="bm-label">Email</label>
+        <input class="bm-input" name="user[email]" type="text"/>
       </div>
       <div class="log-row">
-        <label>Password</label>
-        <input name="user[password]" type="password"/>
+        <label class="bm-label">Password</label>
+        <input class="bm-input" name="user[password]" type="password"/>
       </div>
       <div class="log-row">
-        <label>Re-type password</label>
-        <input name="user[password_confirmation]" type="password"/>
+        <label class="bm-label">Re-type password</label>
+        <input class="bm-input" name="user[password_confirmation]" type="password"/>
       </div>
       <input name="commit" type="hidden" value="Sign in">
       <div class="log-row">

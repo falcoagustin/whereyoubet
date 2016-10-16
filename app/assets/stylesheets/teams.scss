@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "colors";
-.team-panel {
+.model-panel {
    position: absolute;
    display: flex;
    left: 15%;
@@ -12,17 +12,17 @@
    text-align: center;
  }
 
-.team-create {
+.model-create {
   display: inline-block;
   width: 25%;
 }
 
-.teams-container {
+.model-container {
   display: inline-block;
   width: 75%;
 }
 
-.teams-row {
+.model-row {
   height: 10%;
   label {
     font-size: 20px;

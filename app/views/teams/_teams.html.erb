@@ -1,7 +1,7 @@
-<div class="teams-container">
+<div class="model-container">
   <h3 class="bm-title"> All Teams </h3>
     <% @teams.each do |team| %>
-      <div class="teams-row">
+      <div class="model-row">
         <label> <%= team.name %> </label>
         <label> <%= team.country_id %> </label>
         <%= link_to 'Destroy', team_path(team),

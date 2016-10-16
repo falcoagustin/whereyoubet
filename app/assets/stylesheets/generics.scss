@@ -32,3 +32,34 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+@import "colors";
+.model-panel {
+   position: absolute;
+   display: flex;
+   left: 15%;
+   top: 20%;
+   background-color: $grey;
+   width: 70%;
+   text-align: center;
+ }
+
+.model-create {
+  display: inline-block;
+  width: 25%;
+}
+
+.model-container {
+  display: inline-block;
+  width: 75%;
+}
+
+.model-row {
+  height: 10%;
+  label {
+    font-size: 20px;
+  }
+  &:hover {
+    background-color: #F2F2F2;
+  }
+}

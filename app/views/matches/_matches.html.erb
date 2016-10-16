@@ -1,0 +1,26 @@
+<div class="model-container">
+  <h3 class="bm-title"> All Matches </h3>
+  <ul class="model-header-container">
+    <li class="header cell-small"> Time </li>
+    <li class="header cell-tiny"> Local Ratio </li>
+    <li class="header cell-tiny">  Visitor Ratio</li>
+    <li class="header cell-tiny">  Tie Ratio</li>
+    <li class="header cell-small">  Local Team</li>
+    <li class="header cell-small">  Visitor Team</li>
+    <li class="header cell-tiny"></li>
+  </ul>
+  <% @matches.each do |match| %>
+    <div class="model-row">
+      <span class="cell-small"> <%= match.time.strftime("%m-%d-%Y %H:%M:%S")	 %> </span>
+      <label class="cell-tiny number-row"> <%= match.local_ratio %> </label>
+      <label class="cell-tiny number-row"> <%= match.visitor_ratio %> </label>
+      <label class="cell-tiny number-row"> <%= match.tie_ratio %> </label>
+      <label class="cell-small"> <%= match.local_team_id %> </label>
+      <label class="cell-small"> <%= match.visitor_team_id %> </label>
+      <a data-confirm="Are you sure?"
+         rel="nofollow"
+         data-method="delete"
+         href="/matches/<%=match.id%>"><span class="cell-tiny glyphicon glyphicon-trash"></span></a>
+    </div>
+  <% end %>
+</div>

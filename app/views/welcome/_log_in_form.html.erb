@@ -1,41 +1,43 @@
 <div class="log-panel">
-  <% if create %>
-    <form class="log-form" action="/users/login" method="POST">
-      <label>Log in</label>
+  <% if !create %>
+    <%= form_tag("/users/sign_in", method: "post", class: "log-form") do %>
+    <!--<form class="log-form" action="/users/sign_in" method="POST"> -->
+      <label class="bm-label">Log in</label>
       <div class="log-row">
-        <label>Username</label>
-        <input name="username" type="text"/>
+        <label class="bm-label">Email</label>
+        <input class="bm-input"  name="user[email]" type="text"/>
       </div>
       <div class="log-row">
-        <label>Password</label>
-        <input name="password" type="password"/>
+        <label class="bm-label">Password</label>
+        <input class="bm-input" name="user[password]" type="password"/>
       </div>
+      <input name="commit" type="hidden" value="Log in">
       <div class="log-row">
         <button type="submit" class="log-button">Submit</button>
       </div>
-    </form>
+    <% end %>
+    <!--</form> -->
   <% else %>
-    <form class="log-form" action="/users" method="POST">
-      <label>Create new user</label>
+    <!-- <form class="log-form" action="/users" method="POST"> -->
+    <%= form_tag("/users", method: "post", class: "log-form") do %>
+      <label class="bm-label">Create new user</label>
       <div class="log-row">
-        <label>Username</label>
-        <input name="username" type="text"/>
+        <label class="bm-label">Email</label>
+        <input class="bm-input" name="user[email]" type="text"/>
       </div>
       <div class="log-row">
-        <label>Email</label>
-        <input name="email" type="text"/>
+        <label class="bm-label">Password</label>
+        <input class="bm-input" name="user[password]" type="password"/>
       </div>
       <div class="log-row">
-        <label>Password</label>
-        <input name="password" type="password"/>
+        <label class="bm-label">Re-type password</label>
+        <input class="bm-input" name="user[password_confirmation]" type="password"/>
       </div>
-      <div class="log-row">
-        <label>Re-type password</label>
-        <input type="password"/>
-      </div>
+      <input name="commit" type="hidden" value="Sign in">
       <div class="log-row">
         <button type="submit" class="log-button">Submit</button>
       </div>
-    </form>
+  <% end %>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
   <% end %>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917191824) do
+ActiveRecord::Schema.define(version: 20161015233405) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -20,13 +20,72 @@ ActiveRecord::Schema.define(version: 20160917191824) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bets", force: :cascade do |t|
+    t.datetime "executed"
+    t.integer  "user_id"
+    t.integer  "match_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "bet_on_local",   default: false, null: false
+    t.boolean  "bet_on_visitor", default: false, null: false
+    t.boolean  "bet_on_tie",     default: false, null: false
+  end
+
+  add_index "bets", ["match_id"], name: "index_bets_on_match_id"
+  add_index "bets", ["user_id"], name: "index_bets_on_user_id"
+
+  create_table "complete_bets", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "first_bet_id"
+    t.integer  "second_bet_id"
+    t.integer  "third_bet_id"
+    t.float    "amount"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "time"
+    t.float    "local_ratio"
+    t.float    "visitor_ratio"
+    t.float    "tie_ratio"
+    t.integer  "local_team_id"
+    t.integer  "visitor_team_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "country_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "username"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

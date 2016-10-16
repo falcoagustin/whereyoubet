@@ -1,12 +1,15 @@
 <div class="nav-bar">
   <div class="logo">
-    <label>Company </label>
+    <label onclick="goToHome()">BetMatch </label>
   </div>
   <div class="options">
     <ul>
-      <li onclick="showSelectedMenu('#homeMenu')"> <a> Home </a> </li>
-      <li onclick="showSelectedMenu('#createUserMenu')"> <a> Sign up </a> </li>
-      <li onclick="showSelectedMenu('#logInMenu')"> <a> Log in </a> </li>
+      <li> <a href="/teams" class="bm-nav-option"> Teams </a> </li>
+      <li> <a href="/matches" class="bm-nav-option"> Matches </a> </li>
+      <% if !logged %>
+        <li> <a class="bm-nav-option" onclick="showSelectedMenu('#signUpMenu')"> Sign up </a> </li>
+        <li> <a class="bm-nav-option" onclick="showSelectedMenu('#logInMenu')"> Log in </a> </li>
+      <% end %>
     </ul>
   </div>
 </div>

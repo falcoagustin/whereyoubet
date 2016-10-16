@@ -5,9 +5,8 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .nav-bar {
-  background-color: #6699ff;
-  border-radius: 0 0 8px 2px;
-  box-shadow: 0 1px #888888;
+  background-color: $black;
+  box-shadow: 0 4px #e6e6e6;
   position: fixed;
   width: 100%;
 
@@ -30,7 +29,7 @@ body {
   .options {
     display: inline-block;
     text-align: right;
-    width: calc(100% - 200px);
+    width: calc(100% - 250px);
 
     ul {
       list-style-type: none;
@@ -41,20 +40,18 @@ body {
         vertical-align: middle;
         display:inline;
         padding: 4%;
-
-        a {
-          &:hover {
-            transition: all 500ms;
-            color: #c2c2d6;
-            cursor: pointer;
-          }
-
-          color: $white;
-          display:inline;
-          text-align: left;
-          text-decoration: none;
-        }
       }
+    }
+    .bm-nav-option {
+      &:hover {
+        transition: all 500ms;
+        color: #c2c2d6;
+        cursor: pointer;
+      }
+      color: $white;
+      display:inline;
+      text-align: left;
+      text-decoration: none;
     }
   }
 }

@@ -1,0 +1,5 @@
+<%= form_tag import_matches_path, :class => 'csv-form',multipart: true do %>
+  <%= file_field_tag :file, :class => 'upload-file' %>
+  <%= submit_tag "Import CSV", :class => 'bm-button' %>
+<% end %>
+<%= flash[:notice] %>

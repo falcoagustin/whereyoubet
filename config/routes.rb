@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :articles
-  resources :users
-  post  '/users/login',  to: 'users#login'
+  #resources :users
+  resources :teams
+  resources :matches do
+    collection {post :import}
+  end
+  #post  '/users/login',  to: 'users#login'
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

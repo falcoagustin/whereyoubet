@@ -51,7 +51,7 @@
 
 .model-container {
   display: inline-block;
-  width: 75%;
+  width: 73%;
 }
 
 .model-row {
@@ -67,6 +67,27 @@
 .model-header-container {
   margin-bottom: 2%;
   padding-left: 0;
-  margin-right: 3%;
   border-bottom: 1px solid #ddd;
+  list-style: none;
+  position:relative;
+}
+
+.cell-large {
+  width: 33%;
+}
+
+.cell-small {
+  width: 17%;
+}
+
+.cell-tiny {
+  width: 10%;
+}
+
+.header {
+  display: inline-block;
+}
+
+.number-row {
+  text-align: center;
 }

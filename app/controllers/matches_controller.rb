@@ -18,6 +18,15 @@ class MatchesController < ApplicationController
     redirect_to :back
   end
 
+  def import
+    begin
+      Match.import(params[:file])
+      redirect_to :back, notice: "Matches imported."
+    rescue
+      redirect_to :back, notice: "Invalid CSV file format."
+    end
+  end
+
   private
     def team_params
       params.require(:match).permit(:time, :local_ratio, :visitor_ratio,

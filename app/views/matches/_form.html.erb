@@ -1,0 +1,15 @@
+<div class="match-create">
+  <h3 class="bm-title"> Create new match </h3>
+  <%= form_for :match do |m| %>
+    <p>
+      <%= m.label :dateOfMatch, :class => "bm-label" %><br>
+      <%= m.datetime_local_field :datetime, :class => "bm-input" %>
+    </p>
+    <p>
+      <%= m.label :country, :class =>"bm-label" %><br>
+      <%= m.number_field :country_id, :class => "bm-input" %>
+    </p>
+    <!-- <button type="submit">Submit</button> -->
+    <%= m.submit %>
+  <% end %>
+</div>

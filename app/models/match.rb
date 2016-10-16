@@ -6,7 +6,6 @@ class Match < ActiveRecord::Base
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      byebug
       match_hash = row.to_hash
       Match.create!(match_hash)
     end

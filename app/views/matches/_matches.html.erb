@@ -2,7 +2,7 @@
   <h3 class="bm-title"> All Matches </h3>
     <% @matches.each do |match| %>
       <div class="teams-row">
-        <label> <%= match.datetime %> </label>
+        <label> <%= match.time %> </label>
         <label> <%= match.local_ratio %> </label>
         <label> <%= match.visitor_ratio %> </label>
         <label> <%= match.tie_ratio %> </label>

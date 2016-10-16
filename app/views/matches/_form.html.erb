@@ -1,9 +1,9 @@
-<div class="match-create">
+<div class="team-create">
   <h3 class="bm-title"> Create new match </h3>
   <%= form_for :match do |m| %>
     <p>
       <%= m.label :match_date, :class => "bm-label" %>
-      <%= m.datetime_local_field :datetime, :class => "bm-input" %>
+      <%= m.datetime_local_field :time, :class => "bm-input" %>
     </p>
     <p>
       <%= m.label :local_ratio, :class =>"bm-label" %>

@@ -1,16 +1,25 @@
 <div class="model-container">
   <h3 class="bm-title"> All Matches </h3>
-    <% @matches.each do |match| %>
-      <div class="model-row">
-        <label> <%= match.time %> </label>
-        <label> <%= match.local_ratio %> </label>
-        <label> <%= match.visitor_ratio %> </label>
-        <label> <%= match.tie_ratio %> </label>
-        <label> <%= match.local_team_id %> </label>
-        <label> <%= match.visitor_team_id %> </label>
-        <%= link_to 'Destroy', match_path(match),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
+  <ul class="model-header-container">
+    <li class="header cell-small"> Time </li>
+    <li class="header cell-tiny"> Local Ratio </li>
+    <li class="header cell-tiny">  Visitor Ratio</li>
+    <li class="header cell-tiny">  Tie Ratio</li>
+    <li class="header cell-tiny">  Local Team</li>
+    <li class="header cell-tiny">  Visitor Team</li>
+    <li class="header cell-tiny"></li>
+  </ul>
+  <% @matches.each do |match| %>
+    <div class="model-row">
+      <span class="cell-small"> <%= match.time.strftime("%m-%d-%Y %H:%M:%S")	 %> </span>
+      <label class="cell-tiny number-row"> <%= match.local_ratio %> </label>
+      <label class="cell-tiny number-row"> <%= match.visitor_ratio %> </label>
+      <label class="cell-tiny number-row"> <%= match.tie_ratio %> </label>
+      <label class="cell-tiny number-row"> <%= match.local_team_id %> </label>
+      <label class="cell-tiny number-row"> <%= match.visitor_team_id %> </label>
+      <%= link_to 'Destroy', match_path(match),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>
 </div>

@@ -1,15 +1,15 @@
 <div class="model-container">
   <h3 class="bm-title"> All Teams </h3>
   <ul class="model-header-container">
-    <li class="team-header large"> Name </li>
-    <li class="team-header small country-column"> Country </li>
-    <li class="team-header small"></li>
+    <li class="header cell-large"> Name </li>
+    <li class="header cell-small"> Country </li>
+    <li class="header cell-small"></li>
   </ul>
   <% @teams.each do |team| %>
     <div class="model-row">
-      <label class="team-column-large"> <%= team.name %> </label>
-      <label class="team-column-small"> <%= team.country_id %> </label>
-      <%= link_to 'Destroy', team_path(team), :class => "team-column-small",
+      <label class="cell-large"> <%= team.name %> </label>
+      <label class="cell-small"> <%= team.country_id %> </label>
+      <%= link_to 'Destroy', team_path(team), :class => "cell-small",
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
       <!-- <span class="glyphicon glyphicon-trash"> </span> -->

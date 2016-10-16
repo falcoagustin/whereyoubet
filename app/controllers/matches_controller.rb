@@ -11,6 +11,13 @@ class MatchesController < ApplicationController
     end
   end
 
+  def destroy
+    @match = Match.find(params[:id])
+    @match.destroy
+    # FIXME: make an asyncronous call for creating not to get all the teams all the time.
+    redirect_to :back
+  end
+
   private
     def team_params
       params.require(:match).permit(:time, :local_ratio, :visitor_ratio,

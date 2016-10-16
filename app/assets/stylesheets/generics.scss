@@ -13,7 +13,8 @@
 }
 
 .bm-title {
-  margin-bottom: 35px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .dropdown {
@@ -41,7 +42,6 @@
    top: 20%;
    background-color: $grey;
    width: 70%;
-   text-align: center;
  }
 
 .model-create {
@@ -57,9 +57,16 @@
 .model-row {
   height: 10%;
   label {
-    font-size: 20px;
+    font-size: 17px;
   }
   &:hover {
     background-color: #F2F2F2;
   }
+}
+
+.model-header-container {
+  margin-bottom: 2%;
+  padding-left: 0;
+  margin-right: 3%;
+  border-bottom: 1px solid #ddd;
 }

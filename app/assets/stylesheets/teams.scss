@@ -1,3 +1,27 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.team-header {
+  list-style: none;
+  display: inline-block;
+}
+.large {
+  width: 33%;
+}
+
+.small {
+  width: 17%;
+}
+
+.team-column-large {
+  width: 33%;
+}
+
+.team-column-small {
+  width: 17%;
+
+}
+
+.country-column {
+  padding-left: 1%;
+}

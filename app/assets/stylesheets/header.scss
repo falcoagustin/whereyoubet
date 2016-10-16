@@ -40,20 +40,18 @@ body {
         vertical-align: middle;
         display:inline;
         padding: 4%;
-
-        a {
-          &:hover {
-            transition: all 500ms;
-            color: #c2c2d6;
-            cursor: pointer;
-          }
-
-          color: $white;
-          display:inline;
-          text-align: left;
-          text-decoration: none;
-        }
       }
+    }
+    .bm-nav-option {
+      &:hover {
+        transition: all 500ms;
+        color: #c2c2d6;
+        cursor: pointer;
+      }
+      color: $white;
+      display:inline;
+      text-align: left;
+      text-decoration: none;
     }
   }
 }

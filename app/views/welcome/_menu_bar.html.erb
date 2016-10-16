@@ -4,10 +4,11 @@
   </div>
   <div class="options">
     <ul>
-      <li> <a href="/teams"> Create teams </a> </li>
+      <li> <a href="/teams" class="bm-nav-option"> Teams </a> </li>
+      <li> <a href="/matches" class="bm-nav-option"> Matches </a> </li>
       <% if !logged %>
-        <li> <a onclick="showSelectedMenu('#signUpMenu')"> Sign up </a> </li>
-        <li> <a onclick="showSelectedMenu('#logInMenu')"> Log in </a> </li>
+        <li> <a class="bm-nav-option" onclick="showSelectedMenu('#signUpMenu')"> Sign up </a> </li>
+        <li> <a class="bm-nav-option" onclick="showSelectedMenu('#logInMenu')"> Log in </a> </li>
       <% end %>
     </ul>
   </div>

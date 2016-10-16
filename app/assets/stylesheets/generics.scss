@@ -56,6 +56,7 @@
 
 .model-row {
   height: 10%;
+  display: flex;
   label {
     font-size: 17px;
   }
@@ -70,6 +71,7 @@
   border-bottom: 1px solid #ddd;
   list-style: none;
   position:relative;
+  display: flex;
 }
 
 .cell-large {

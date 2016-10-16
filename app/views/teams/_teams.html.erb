@@ -9,9 +9,10 @@
     <div class="model-row">
       <label class="cell-large"> <%= team.name %> </label>
       <label class="cell-small"> <%= team.country_id %> </label>
-      <%= link_to 'Destroy', team_path(team), :class => "cell-small",
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+      <a data-confirm="Are you sure?"
+         rel="nofollow"
+         data-method="delete"
+         href="/teams/<%=team.id%>"><span class="cell-tiny glyphicon glyphicon-trash"></span></a>
       <!-- <span class="glyphicon glyphicon-trash"> </span> -->
     </div>
   <% end %>

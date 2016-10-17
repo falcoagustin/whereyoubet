@@ -7,8 +7,11 @@
       <li> <a href="/teams" class="bm-nav-option"> Teams </a> </li>
       <li> <a href="/matches" class="bm-nav-option"> Matches </a> </li>
       <% if !logged %>
-        <li> <a class="bm-nav-option" onclick="showSelectedMenu('#signUpMenu')"> Sign up </a> </li>
-        <li> <a class="bm-nav-option" onclick="showSelectedMenu('#logInMenu')"> Log in </a> </li>
+        <li> <a id="accounts" class="bm-nav-option dropdown"> Accounts </a></li>
+        <div id="accountsDropdown" class="dropdown-content">
+          <div><a class="dropdown-item" onclick="showSelectedMenu('#signUpMenu');hideAccountsDropdown()"> Sign up </a></div>
+          <div><a class="dropdown-item" onclick="showSelectedMenu('#logInMenu');hideAccountsDropdown()"> Log in </a></div>
+        </div>
       <% end %>
     </ul>
   </div>

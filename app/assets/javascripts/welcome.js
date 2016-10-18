@@ -14,3 +14,17 @@ function showSelectedMenu(selectedMenu) {
 function goToHome() {
   window.location = "/";
 }
+
+function hideAccountsDropdown() {
+  $('#accountsDropdown').css('display', 'none');
+}
+
+$( document ).ready(function() {
+  $("#accounts").hover(
+    function() { $('#accountsDropdown').css('display', 'block'); }
+  );
+  $("#accountsDropdown").hover(
+    function() { },
+    function() { $('#accountsDropdown').css('display', 'none'); }
+  );
+});

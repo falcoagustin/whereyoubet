@@ -1,12 +1,7 @@
-$black: rgb(0, 0, 0);
-$white: #ffffff;
-$darkgray: lighten($black, 32%);
-body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
+@import "colors";
 .nav-bar {
   background-color: $black;
-  box-shadow: 0 4px #e6e6e6;
+  box-shadow: 0 1px rgba(0,0,0,0.3), 0 0 8px rgba(0,0,0,0.06);
   position: fixed;
   width: 100%;
 

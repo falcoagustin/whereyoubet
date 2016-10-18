@@ -1,4 +1,19 @@
 @import "colors";
+
+html {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  height:100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  background-image: url('goal-blur.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background: linear-gradient(90deg, #666699, rgba(#165998, 0.92));
+}
+
 .bm-input{
   display: block;
   margin-left: 12%;
@@ -15,6 +30,7 @@
 .bm-title {
   margin-bottom: 10px;
   text-align: center;
+  font-family: Copperplate, "Copperplate Gothic Light";
 }
 
 .dropdown {
@@ -25,23 +41,31 @@
 .dropdown-content {
     display: none;
     position: absolute;
+    right: 20px;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
+    text-align: left;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+.dropdown-item {
+  display: block;
+  height: 100%;
+  padding: 8%;
+  cursor: pointer;
+  &:hover {
+    background-color: $grey;
+  }
 }
 
 .model-panel {
    position: absolute;
    display: flex;
    left: 15%;
-   top: 20%;
+   top: 17%;
    background-color: $grey;
    width: 70%;
+   box-shadow: 6px 6px 25px -1px rgba(0,0,0,0.75);
  }
 
 .model-create {
@@ -98,6 +122,7 @@
   background-color: black;
   color: white;
   border-radius: 4px;
+  font-family: Copperplate, "Copperplate Gothic Light";
 }
 
 .upload-file {

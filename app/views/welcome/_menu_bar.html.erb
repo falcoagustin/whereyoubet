@@ -4,11 +4,22 @@
   </div>
   <div class="options">
     <ul>
-      <li> <a href="/teams" class="bm-nav-option"> Teams </a> </li>
-      <li> <a href="/matches" class="bm-nav-option"> Matches </a> </li>
-      <% if !logged %>
-        <li> <a class="bm-nav-option" onclick="showSelectedMenu('#signUpMenu')"> Sign up </a> </li>
-        <li> <a class="bm-nav-option" onclick="showSelectedMenu('#logInMenu')"> Log in </a> </li>
+      <%if user_signed_in? %>
+        <% if current_user.is_admin_user %>
+          <li> <a href="/teams" class="bm-nav-option"> Teams </a> </li>
+          <li> <a href="/matches" class="bm-nav-option"> Matches </a> </li>
+        <% end %>
+        <li> <a id="accounts" class="bm-nav-option dropdown"> <%= current_user.email %> </a> </li>
+        <div id="accountsDropdown" class="dropdown-content">
+          <div><a class="dropdown-item" onclick="hideAccountsDropdown()"> My account </a></div>
+          <div> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </div>
+        </div>
+      <% else %>
+        <li> <a id="accounts" class="bm-nav-option dropdown"> Accounts </a></li>
+        <div id="accountsDropdown" class="dropdown-content">
+          <div><a class="dropdown-item" onclick="showSelectedMenu('#signUpMenu');hideAccountsDropdown()"> Sign up </a></div>
+          <div><a class="dropdown-item" onclick="showSelectedMenu('#logInMenu');hideAccountsDropdown()"> Log in </a></div>
+        </div>
       <% end %>
     </ul>
   </div>

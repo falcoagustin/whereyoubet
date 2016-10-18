@@ -8,6 +8,7 @@
   margin-top: -250px;
   width:500px;
   background: $grey;
+  box-shadow: 6px 6px 25px -1px rgba(0,0,0,0.75);
   .log-form {
     padding: 5% 20%;
     position: relative;
@@ -19,8 +20,10 @@
       margin-top: 10%;
       padding: 5% 10%;
       border: solid 1px;
-      border-radius: 15px;
+      border-radius: 3px;
       background-color: $forestgreen;
+      color: $white;
+      font-family: Copperplate, "Copperplate Gothic Light";
       width: 100%;
       &:hover{
         cursor:pointer;

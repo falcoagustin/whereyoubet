@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   get  '/users',  to: 'users#edit_profile'
+  resources :users
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

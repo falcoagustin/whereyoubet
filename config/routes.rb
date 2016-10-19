@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :matches do
     collection {post :import}
   end
-  #post  '/users/login',  to: 'users#login'
+
+  get  '/users',  to: 'users#edit_profile'
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

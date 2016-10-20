@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
-  get  '/users',  to: 'users#edit_profile'
+  get '/users',  to: 'users#edit_profile'
+  get '/users/edit_password', to: 'users#edit_password'
   resources :users
   root 'welcome#index'
 

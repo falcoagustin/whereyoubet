@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def edit_profile
   end
 
+  def edit_password
+  end
+
   def update
     byebug
     @user = User.find(params[:id])
@@ -12,6 +15,7 @@ class UsersController < ApplicationController
       redirect_to :back, notice: "There was a problem with the server."
     end
   end
+
   private
     def user_params
       params.require(:user).permit(:name, :last_name, :birthday, :address, :phone_number)

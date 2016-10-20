@@ -17,10 +17,11 @@
       <label class="cell-tiny"> <%= match.tie_ratio %> </label>
       <label class="cell-small"> <%= match.local_team_id %> </label>
       <label class="cell-small"> <%= match.visitor_team_id %> </label>
-      <a data-confirm="Are you sure?"
+      <a class="cell-tiny"
+         data-confirm="Are you sure?"
          rel="nofollow"
          data-method="delete"
-         href="/matches/<%=match.id%>"><span class="cell-tiny glyphicon glyphicon-trash"></span></a>
+         href="/matches/<%=match.id%>"><span class="glyphicon glyphicon-trash"></span></a>
     </div>
   <% end %>
 </div>

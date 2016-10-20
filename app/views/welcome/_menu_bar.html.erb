@@ -12,7 +12,7 @@
         <li> <a id="accounts" class="bm-nav-option dropdown"> <%= current_user.email %> </a> </li>
         <div id="accountsDropdown" class="dropdown-content">
           <div><a class="dropdown-item" onclick="hideAccountsDropdown()" href="/users"> Edit profile </a></div>
-          <div><a class="dropdown-item" onclick="hideAccountsDropdown()" href="/users"> Change password </a></div>
+          <div><a class="dropdown-item" onclick="hideAccountsDropdown()" href="/users/edit_password"> Change password </a></div>
           <div> <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item") %> </div>
         </div>
       <% else %>

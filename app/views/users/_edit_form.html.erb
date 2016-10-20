@@ -2,7 +2,6 @@
   <%= form_for current_user, :html => {:class => "edit-profile-container"},
   url: user_path(current_user), :method => "patch" do |u| %>
     <label class="bm-label">Edit your profile</label>
-    <!-- <img src="/assets/default-person.jpg"/> -->
     <%= image_tag("default-person.jpg", class: "edit-profile-img") %>
     <div class="edit-profile-data">
       <div class="log-row">
@@ -25,7 +24,6 @@
         <%= u.label :phone_number, :class => "bm-label" %>
         <%= u.number_field :phone_number, :class => "bm-input" %>
       </div>
-    <!-- <button type="submit">Submit</button> -->
     </div>
     <div class="edit-button">
       <%= u.submit 'Save changes', :class => "bm-button" %>

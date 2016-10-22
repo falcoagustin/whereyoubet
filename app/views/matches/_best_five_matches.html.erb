@@ -20,7 +20,7 @@
           <label> vs </label>
           <span> <%= match.visitor_team.name %> </span>
         </div>
-        <div class="bet-button"> Bet </div>
+        <div class="bet-button bet-button-inactive" onclick="toggleBet(<%= match.id %>, this);"> Bet </div>
       </div>
     <% end %>
   </div>

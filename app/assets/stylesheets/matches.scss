@@ -35,9 +35,16 @@
     }
     .bet-button {
       border: 0.2px solid;
-      text-align: center;
-      border-radius: 3px;
       font-family: Copperplate, "Copperplate Gothic Light";
+      cursor: pointer;
+      text-align: center;
+      &-inactive {
+        border-radius: 3px;
+      }
+      &-active {
+        background-color: $forestgreen;
+        color: $white;
+      }
     }
   }
 }

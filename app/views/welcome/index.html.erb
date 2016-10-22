@@ -3,12 +3,15 @@
     <meta name="viewport" content="width=device-width">
   </header>
   <body>
-    <%= render 'menu_bar', :logged => false %>
-  <div id="signUpMenu" hidden>
-    <%= render 'log_in_form', :create => true %>
-  </div>
-  <div id="logInMenu">
-    <%= render 'log_in_form', :create => false %>
-  </div>
+    <%= render 'menu_bar'%>
+    <div id="mainPanel" class="bm-panel">
+      <%= render 'matches/top_matches'%>
+    </div>
+    <div id="signUpMenu" hidden>
+      <%= render 'log_in_form', :create => true %>
+    </div>
+    <div id="logInMenu" hidden>
+      <%= render 'log_in_form', :create => false %>
+    </div>
   </body>
 </html>

@@ -15,16 +15,20 @@
     border-bottom: .5px solid;
   }
 }
+
 .bet-container {
   width: 75%;
   display: inline-block;
 }
+
 .user-bet-container {
   padding: 1%;
   width: 25%;
   height: 100%;
   display: inline-block;
+  text-align: center;
   .user-bet-row {
+    margin-bottom: 5%;
     label {
       width: 20%;
     }
@@ -32,7 +36,11 @@
       display: block;
     }
   }
+  button {
+    margin-bottom: 8%;
+  }
 }
+
 .best-five-content {
   margin-top: 5%;
   ul {

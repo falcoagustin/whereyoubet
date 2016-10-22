@@ -21,7 +21,6 @@ function hideAccountsDropdown() {
 }
 
 function toggleBet(match, buttonDOM) {
-  debugger;
   button = $(buttonDOM);
   var length = betIds.length;
   var matchId = match.id;
@@ -48,10 +47,11 @@ function addMatch(match) {
   betIds.push(match.id);
   var form = $('#completeBetForm').append(
     '<div class="user-bet-row" id="match'+ match.id + '">' +
+    '<input type="hidden" name="completeBet[id' + betIds.lenght + ']" value="' + match.id + '"/>' +
     '<label>' + match.local_ratio + '</label>' +
     '<label>' + match.visitor_ratio + '</label>' +
     '<label>' + match.tie_ratio + '</label>' +
-    '<select> <option value="L"> Local </option> <option value="V"> Visitor </option> <option value="T"> Tie </option></select>' +
+    '<select name="completeBet[select' + betIds.length + ']"> <option value="L"> Local </option> <option value="V"> Visitor </option> <option value="T"> Tie </option></select>' +
     '<div>' + match.name + '</div>'
   )
 }

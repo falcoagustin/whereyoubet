@@ -1,3 +1,6 @@
 <div>
-  <%= render 'matches/best_five_matches' %>
+  <div class="best-five-bets">
+    <h1> Best 5 bets </h1>
+    <%= render 'matches/home_matches_table', :matches => @best_five_matches %>
+  </div>
 </div>

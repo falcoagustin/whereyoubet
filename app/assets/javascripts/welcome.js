@@ -35,7 +35,6 @@ function toggleBet(match, buttonDOM) {
   if (length < 3){
     if (index == -1) {
       addMatch(match);
-      //betIds.push(matchId);
     }else {
       //betIds.pop(matchId);
       removeMatch(matchId);
@@ -54,6 +53,11 @@ function addMatch(match) {
     '<select> <option value="L"> Local </option> <option value="V"> Visitor </option> <option value="T"> Tie </option></select>' +
     '<div>' + match.name + '</div>'
   )
+}
+
+function removeMatch(matchId) {
+  betIds.pop(matchId);
+  $('#match' + matchId).remove();
 }
 
 function toggleBetButton(button) {

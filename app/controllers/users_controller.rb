@@ -7,9 +7,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    byebug
     @user = User.find(params[:id])
-    if @user.update(article_params)
+    if @user.update(user_params)
       redirect_to :back
     else
       redirect_to :back, notice: "There was a problem with the server."
@@ -18,6 +17,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :last_name, :birthday, :address, :phone_number)
+      params.require(:user).permit(:name, :last_name, :birthday, :address,
+        :phone_number, :avatar)
     end
 end

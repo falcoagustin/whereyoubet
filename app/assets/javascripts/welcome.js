@@ -21,6 +21,7 @@ function hideAccountsDropdown() {
 }
 
 function toggleBet(match, buttonDOM) {
+  debugger;
   button = $(buttonDOM);
   var length = betIds.length;
   var matchId = match.id;
@@ -28,7 +29,7 @@ function toggleBet(match, buttonDOM) {
   if (length == 3 && index == -1) return;
   if (length == 3 && index != -1) {
     //betIds.pop(matchId);
-    removeMatch(matchId);
+    removeMatch(index, matchId);
     toggleBetButton(button);
     return;
   }
@@ -37,7 +38,7 @@ function toggleBet(match, buttonDOM) {
       addMatch(match);
     }else {
       //betIds.pop(matchId);
-      removeMatch(matchId);
+      removeMatch(index, matchId);
     }
     toggleBetButton(button);
   }
@@ -55,8 +56,8 @@ function addMatch(match) {
   )
 }
 
-function removeMatch(matchId) {
-  betIds.pop(matchId);
+function removeMatch(index, matchId) {
+  betIds.splice(index, 1);
   $('#match' + matchId).remove();
 }
 

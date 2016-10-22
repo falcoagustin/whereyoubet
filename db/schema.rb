@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20161022020241) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 20161022020241) do
     t.boolean  "bet_on_tie",     default: false, null: false
   end
 
-  add_index "bets", ["match_id"], name: "index_bets_on_match_id"
-  add_index "bets", ["user_id"], name: "index_bets_on_user_id"
+  add_index "bets", ["match_id"], name: "index_bets_on_match_id", using: :btree
+  add_index "bets", ["user_id"], name: "index_bets_on_user_id", using: :btree
 
   create_table "complete_bets", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -93,7 +96,7 @@ ActiveRecord::Schema.define(version: 20161022020241) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

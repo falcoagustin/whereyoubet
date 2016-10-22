@@ -22,10 +22,20 @@ function hideAccountsDropdown() {
 
 function toggleBet(matchId, buttonDOM) {
   button = $(buttonDOM);
-  if (betIds.indexOf(matchId) == -1) betIds.push(matchId);
-  if (betIds.length > 3) {
+  var length = betIds.length;
+  var index = betIds.indexOf(matchId);
+  if (length == 3 && index == -1) return;
+  if (length == 3 && index != -1) {
     betIds.pop(matchId);
-  }else {
+    toggleBetButton(button);
+    return;
+  }
+  if (length < 3){
+    if (index == -1) {
+      betIds.push(matchId);
+    }else {
+      betIds.pop(matchId);
+    }
     toggleBetButton(button);
   }
 }

@@ -6,14 +6,24 @@
   margin-top: 7%;
 }
 
-.best-five-bets {
-  border-right: .5px solid;
-  width: 50%;
+.best-five-bets,
+.hot-five-bets {
   padding: 1%;
+  border-right: .5px solid;
   h1 {
     font-weight: bold;
     border-bottom: .5px solid;
   }
+}
+.bet-container {
+  width: 75%;
+  display: inline-block;
+}
+.user-bet-container {
+  padding: 1%;
+  width: 25%;
+  height: 100%;
+  display: inline-block;
 }
 .best-five-content {
   margin-top: 5%;
@@ -43,6 +53,7 @@
     font-family: Copperplate, "Copperplate Gothic Light";
     cursor: pointer;
     text-align: center;
+    width: 8%;
     &-inactive {
       border-radius: 3px;
     }

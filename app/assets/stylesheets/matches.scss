@@ -14,41 +14,41 @@
     font-weight: bold;
     border-bottom: .5px solid;
   }
-  .best-five-content {
-    margin-top: 5%;
-    ul {
-      padding: 0;
-      list-style: none;
-      li {
-        width: 16%;
-        display: inline-block;
-      }
-    }
-    div {
+}
+.best-five-content {
+  margin-top: 5%;
+  ul {
+    padding: 0;
+    list-style: none;
+    li {
       width: 16%;
       display: inline-block;
-      &.double-row {
-        width: 32%;
-        text-overflow: ellipsis;
-      }
     }
-    .best-five-header,
-    .best-five-row {
-      width: 100%;
-      height: 30px;
+  }
+  div {
+    width: 16%;
+    display: inline-block;
+    &.double-row {
+      width: 32%;
+      text-overflow: ellipsis;
     }
-    .bet-button {
-      border: 0.2px solid;
-      font-family: Copperplate, "Copperplate Gothic Light";
-      cursor: pointer;
-      text-align: center;
-      &-inactive {
-        border-radius: 3px;
-      }
-      &-active {
-        background-color: $forestgreen;
-        color: $white;
-      }
+  }
+  .best-five-header,
+  .best-five-row {
+    width: 100%;
+    height: 30px;
+  }
+  .bet-button {
+    border: 0.2px solid;
+    font-family: Copperplate, "Copperplate Gothic Light";
+    cursor: pointer;
+    text-align: center;
+    &-inactive {
+      border-radius: 3px;
+    }
+    &-active {
+      background-color: $forestgreen;
+      color: $white;
     }
   }
 }

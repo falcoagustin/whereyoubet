@@ -1,7 +1,7 @@
 class Match < ActiveRecord::Base
   require 'csv'
-  belongs_to :local_team, :class_name => 'Team'
-  belongs_to :visitor_team, :class_name => 'Team'
+  belongs_to :local_team, :class_name => 'Team', :foreign_key => 'local_team_id'
+  belongs_to :visitor_team, :class_name => 'Team', :foreign_key => 'visitor_team_id'
   has_many :teams
 
   def self.import(file)

@@ -18,7 +18,13 @@
         <label> vs </label>
         <span> <%= match.visitor_team.name %> </span>
       </div>
-      <div class="bet-button bet-button-inactive" onclick="toggleBet(<%= match.id %>, this);"> Select </div>
+      <div class="bet-button bet-button-inactive" onclick="toggleBet({
+        id:<%= match.id %>,
+        name:'<%= match.local_team.name + "  vs " + match.visitor_team.name %>',
+        local_ratio:<%= match.local_ratio %>,
+        visitor_ratio:<%= match.visitor_ratio %>,
+        tie_ratio:<%= match.tie_ratio %>,
+      }, this);"> Select </div>
     </div>
   <% end %>
 </div>

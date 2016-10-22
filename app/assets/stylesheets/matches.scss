@@ -24,6 +24,14 @@
   width: 25%;
   height: 100%;
   display: inline-block;
+  .user-bet-row {
+    label {
+      width: 20%;
+    }
+    div {
+      display: block;
+    }
+  }
 }
 .best-five-content {
   margin-top: 5%;

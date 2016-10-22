@@ -1,6 +1,43 @@
 // Place all the styles related to the Matches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors";
 .csv-form {
   margin-top: 7%;
+}
+
+.best-five-bets {
+  border-right: .5px solid;
+  width: 50%;
+  padding: 1%;
+  .best-five-content {
+    margin-top: 5%;
+    ul {
+      padding: 0;
+      list-style: none;
+      li {
+        width: 16%;
+        display: inline-block;
+      }
+    }
+    div {
+      width: 16%;
+      display: inline-block;
+      &.double-row {
+        width: 32%;
+        text-overflow: ellipsis;
+      }
+    }
+    .best-five-header,
+    .best-five-row {
+      width: 100%;
+      height: 30px;
+    }
+    .bet-button {
+      border: 0.2px solid;
+      text-align: center;
+      border-radius: 3px;
+      font-family: Copperplate, "Copperplate Gothic Light";
+    }
+  }
 }

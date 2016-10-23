@@ -1,0 +1,7 @@
+<div class="user-bet-container">
+  <h1> Your bet! </h1>
+  <%= form_tag("/complete_bets", method: "post", id: "completeBetForm") do %>
+    <input type="number" name="completeBet[amount]"/>
+    <button type="submit" class="bm-button"> Bet ! </button>
+  <% end %>
+</div>

@@ -4,15 +4,17 @@ Rails.application.routes.draw do
   resources :articles
   #resources :users
   resources :teams
+  resources :complete_bets
   resources :matches do
     collection {post :import}
   end
 
   get '/users',  to: 'users#edit_profile'
   get '/users/edit_password', to: 'users#edit_password'
+
+  get '/all', to: 'welcome#all_matches'
   resources :users
   root 'welcome#index'
-  resources :complete_bets
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

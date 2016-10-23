@@ -16,6 +16,7 @@
           <div> <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item") %> </div>
         </div>
       <% else %>
+        <li><a href="/all" class="bm-nav-option"> All bets! </a></li>
         <li> <a id="accounts" class="bm-nav-option dropdown"> Accounts </a></li>
         <div id="accountsDropdown" class="dropdown-content">
           <div><a class="dropdown-item" onclick="showSelectedMenu('#homeMenu');hideAccountsDropdown()"> Home </a></div>

@@ -4,10 +4,16 @@ Rails.application.routes.draw do
   resources :articles
   #resources :users
   resources :teams
+  resources :complete_bets
   resources :matches do
     collection {post :import}
   end
-  #post  '/users/login',  to: 'users#login'
+
+  get '/users',  to: 'users#edit_profile'
+  get '/users/edit_password', to: 'users#edit_password'
+
+  get '/all', to: 'welcome#all_matches'
+  resources :users
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

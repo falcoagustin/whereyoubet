@@ -1,19 +1,23 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
+  def edit_profile
+  end
 
-  def create
-    puts params
-    @user = User.new(article_params)
+  def edit_password
+  end
 
-    if @user.save
-      render :template => 'welcome/main_site'
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to :back
+    else
+      redirect_to :back, notice: "There was a problem with the server."
     end
   end
-  # TODO: finish login.
-  def login
-  end
+
   private
-    def article_params
-      params.permit(:email, :username, :password)
+    def user_params
+      params.require(:user).permit(:name, :last_name, :birthday, :address,
+        :phone_number, :avatar)
     end
 end

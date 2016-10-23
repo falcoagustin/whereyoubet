@@ -1,0 +1,11 @@
+<div class="bet-container">
+  <div class="best-five-bets">
+    <h1> Best 5 bets </h1>
+    <%= render 'matches/home_matches_table', :matches => @best_five_matches %>
+  </div>
+  <div class="hot-five-bets">
+    <h1> Hot 5 bets </h1>
+    <%= render 'matches/home_matches_table', :matches => @hot_five_matches %>
+  </div>
+</div>
+<%= render 'matches/selected_matches' %>

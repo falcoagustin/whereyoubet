@@ -1,0 +1,30 @@
+<div class="best-five-content">
+  <div class="best-five-header">
+    <ul>
+      <li><label> Local Rate </label></li>
+      <li><label> Visitor Rate </label></li>
+      <li><label> Tie Rate </label></li>
+      <li class="double-row"><label> Match </label></li>
+      <li></li>
+    </ul>
+  </div>
+  <% matches.each do |match| %>
+    <div class="best-five-row">
+      <div><span> <%= match.local_ratio %> </span></div>
+      <div><span> <%= match.visitor_ratio %> </span></div>
+      <div><span> <%= match.tie_ratio %> </span></div>
+      <div class="double-row">
+        <span> <%= match.local_team.name %> </span>
+        <label> vs </label>
+        <span> <%= match.visitor_team.name %> </span>
+      </div>
+      <div class="bet-button bet-button-inactive" onclick="toggleBet({
+        id:<%= match.id %>,
+        name:'<%= match.local_team.name + "  vs " + match.visitor_team.name %>',
+        local_ratio:<%= match.local_ratio %>,
+        visitor_ratio:<%= match.visitor_ratio %>,
+        tie_ratio:<%= match.tie_ratio %>,
+      }, this);"> Select </div>
+    </div>
+  <% end %>
+</div>

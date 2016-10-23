@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017014808) do
+ActiveRecord::Schema.define(version: 20161022035515) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 20161017014808) do
     t.boolean  "bet_on_tie",     default: false, null: false
   end
 
-  add_index "bets", ["match_id"], name: "index_bets_on_match_id"
-  add_index "bets", ["user_id"], name: "index_bets_on_user_id"
+  add_index "bets", ["match_id"], name: "index_bets_on_match_id", using: :btree
+  add_index "bets", ["user_id"], name: "index_bets_on_user_id", using: :btree
 
   create_table "complete_bets", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -73,7 +76,6 @@ ActiveRecord::Schema.define(version: 20161017014808) do
     t.string   "password"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "username"
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -84,9 +86,25 @@ ActiveRecord::Schema.define(version: 20161017014808) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "is_admin",               default: false, null: false
+    t.string   "last_name"
+    t.datetime "birthday"
+    t.string   "address"
+    t.integer  "phone_number"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bets", "matches"
+  add_foreign_key "bets", "users"
+  add_foreign_key "complete_bets", "matches", column: "first_bet_id"
+  add_foreign_key "complete_bets", "matches", column: "second_bet_id"
+  add_foreign_key "complete_bets", "matches", column: "third_bet_id"
+  add_foreign_key "matches", "teams", column: "local_team_id"
+  add_foreign_key "matches", "teams", column: "visitor_team_id"
+  add_foreign_key "teams", "countries"
 end

@@ -8,7 +8,7 @@ html {
 
 body {
   height: 100%;
-  background-image: url('goal-blur.jpg');
+  background-image: url(<%= asset_path 'goal-blur.jpg' %>);
   background-repeat: no-repeat;
   background-size: cover;
   // background: linear-gradient(90deg, #666699, rgba(#165998, 0.92));
@@ -114,10 +114,6 @@ body {
   display: inline-block;
 }
 
-.number-row {
-  text-align: center;
-}
-
 .bm-button {
   background-color: black;
   color: white;
@@ -127,4 +123,13 @@ body {
 
 .upload-file {
   padding: 4%;
+}
+
+.bm-panel {
+  background: $grey;
+  display: flex;
+  width: 85%;
+  box-shadow: 6px 6px 25px -1px rgba(0,0,0,0.75);
+  margin: 0 auto;
+  padding: 2%;
 }

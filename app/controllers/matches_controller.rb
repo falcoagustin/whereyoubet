@@ -1,7 +1,6 @@
 class MatchesController < ApplicationController
   def index
     @matches = Match.all
-    puts @matches
   end
 
   def create

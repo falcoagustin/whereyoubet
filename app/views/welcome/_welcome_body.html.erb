@@ -1,0 +1,16 @@
+<body>
+  <%= render 'menu_bar'%>
+  <div id="homeMenu" class="bm-panel">
+    <% if render_top_matches_only %>
+      <%= render 'matches/top_matches' %>
+    <% else%>
+      <%= render 'matches/all_matches' %>
+    <% end %>
+  </div>
+  <div id="signUpMenu" hidden>
+    <%= render 'log_in_form', :create => true %>
+  </div>
+  <div id="logInMenu" hidden>
+    <%= render 'log_in_form', :create => false %>
+  </div>
+</body>

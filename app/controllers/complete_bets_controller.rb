@@ -2,7 +2,6 @@ class CompleteBetsController < ApplicationController
   before_action :user_signed_in?, :authenticate_user!
 
   def create
-    byebug
     complete_bet_params
     bet_object = params[:completeBet]
     amount = bet_object[:amount]
@@ -15,7 +14,7 @@ class CompleteBetsController < ApplicationController
         :first_bet => @first_bet,
         :second_bet => @second_bet,
         :third_bet => @third_bet,
-        :amount => bet_object[:amount]
+        :amount => amount
       )
       if @complete_bet.save
         redirect_to :back

@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def edit_password
   end
 
+  def bet_history
+  end
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)

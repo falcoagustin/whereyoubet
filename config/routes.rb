@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/users',  to: 'users#edit_profile'
   get '/users/edit_password', to: 'users#edit_password'
+  get '/users/bet_history', to: 'users#bet_history'
 
   get '/all', to: 'welcome#all_matches'
   resources :users

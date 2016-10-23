@@ -49,6 +49,13 @@
     li {
       width: 16%;
       display: inline-block;
+      &.medium-row {
+        width: 20%;
+        text-overflow: ellipsis;
+      }
+      &.cell-tiny {
+        width: 10%;
+      }
     }
   }
   div {
@@ -57,6 +64,13 @@
     &.double-row {
       width: 32%;
       text-overflow: ellipsis;
+    }
+    &.medium-row {
+      width: 20%;
+      text-overflow: ellipsis;
+    }
+    &.cell-tiny {
+      width: 10%;
     }
   }
   .best-five-header,

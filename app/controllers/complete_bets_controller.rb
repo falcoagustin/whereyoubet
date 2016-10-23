@@ -3,7 +3,7 @@ class CompleteBetsController < ApplicationController
 
   def create
     if !user_signed_in?
-      return redirect_to :back, notice: "You must log in to bet."
+      return redirect_to :back, should_be_logged: "You must log in to bet."
     end
     complete_bet_params
     bet_object = params[:completeBet]

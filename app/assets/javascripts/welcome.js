@@ -47,11 +47,11 @@ function addMatch(match) {
   betIds.push(match.id);
   var form = $('#completeBetForm').append(
     '<div class="user-bet-row" id="match'+ match.id + '">' +
-    '<input type="hidden" name="completeBet[id' + betIds.lenght + ']" value="' + match.id + '"/>' +
+    '<input type="hidden" name="completeBet[id' + betIds.length + ']" value="' + match.id + '"/>' +
     '<label>' + match.local_ratio + '</label>' +
     '<label>' + match.visitor_ratio + '</label>' +
     '<label>' + match.tie_ratio + '</label>' +
-    '<select name="completeBet[select' + betIds.length + ']"> <option value="L"> Local </option> <option value="V"> Visitor </option> <option value="T"> Tie </option></select>' +
+    '<select name="completeBet[select' + betIds.length + ']"> <option value="bet_on_local"> Local </option> <option value="bet_on_visitor"> Visitor </option> <option value="bet_on_tie"> Tie </option></select>' +
     '<div>' + match.name + '</div>'
   )
 }

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/users/edit_password', to: 'users#edit_password'
   resources :users
   root 'welcome#index'
+  resources :complete_bets
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

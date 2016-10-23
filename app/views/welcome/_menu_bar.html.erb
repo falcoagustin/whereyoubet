@@ -9,24 +9,28 @@
           <li> <a href="/teams" class="bm-nav-option"> Teams </a> </li>
           <li> <a href="/matches" class="bm-nav-option"> Matches </a> </li>
         <% end %>
-        <li> <a id="accounts" class="bm-nav-option dropdown"> <%= current_user.email %> </a> </li>
-        <div id="accountsDropdown" class="dropdown-content">
-          <div><a class="dropdown-item" onclick="hideAccountsDropdown()" href="/users"> Edit profile </a></div>
-          <div><a class="dropdown-item" onclick="hideAccountsDropdown()" href="/users/edit_password"> Change password </a></div>
-          <div> <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item") %> </div>
-          <div>
-            <div class="dropdown-separator dropdown-item">
-              <a onclick="hideAccountsDropdown()" href="/users/bet_history"> Bet History </a>
+        <div class="dropdown bm-nav-option">
+          <li> <a id="accounts" class="bm-nav-option"> <%= current_user.email %> </a> </li>
+          <div class="dropdown-content">
+            <div><a class="dropdown-item" href="/users"> Edit profile </a></div>
+            <div><a class="dropdown-item" href="/users/edit_password"> Change password </a></div>
+            <div> <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item") %> </div>
             <div>
+              <div class="dropdown-separator dropdown-item">
+                <a onclick="hideAccountsDropdown()" href="/users/bet_history"> Bet History </a>
+              </div>
+            </div>
           </div>
         </div>
       <% else %>
         <li><a href="/all" class="bm-nav-option"> All bets! </a></li>
-        <li><a class="bm-nav-option" onclick="showSelectedMenu('#homeMenu');hideAccountsDropdown()"> Home </a> </li>
-        <li> <a id="accounts" class="bm-nav-option dropdown"> Accounts </a></li>
-        <div id="accountsDropdown" class="dropdown-content">
-          <div><a class="dropdown-item" onclick="showSelectedMenu('#signUpMenu');hideAccountsDropdown()"> Sign up </a></div>
-          <div><a class="dropdown-item" onclick="showSelectedMenu('#logInMenu');hideAccountsDropdown()"> Log in </a></div>
+        <li><a class="bm-nav-option" onclick="showSelectedMenu('#homeMenu');"> Home </a> </li>
+        <div class="dropdown bm-nav-option">
+          <li> <a id="accounts" class="bm-nav-option"> Accounts </a></li>
+          <div class="dropdown-content">
+            <div><a class="dropdown-item" onclick="showSelectedMenu('#signUpMenu');"> Sign up </a></div>
+            <div><a class="dropdown-item" onclick="showSelectedMenu('#logInMenu');"> Log in </a></div>
+          </div>
         </div>
       <% end %>
     </ul>

@@ -1,7 +1,10 @@
 class CompleteBetsController < ApplicationController
-  before_action :user_signed_in?, :authenticate_user!
+  #before_action :user_signed_in?, :authenticate_user!
 
   def create
+    if !user_signed_in?
+      return redirect_to :back, notice: "You must log in to bet."
+    end
     complete_bet_params
     bet_object = params[:completeBet]
     amount = bet_object[:amount]

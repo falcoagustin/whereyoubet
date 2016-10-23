@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022035515) do
+ActiveRecord::Schema.define(version: 20161023223516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20161022035515) do
     t.boolean  "bet_on_local",   default: false, null: false
     t.boolean  "bet_on_visitor", default: false, null: false
     t.boolean  "bet_on_tie",     default: false, null: false
+    t.integer  "amount"
   end
 
   add_index "bets", ["match_id"], name: "index_bets_on_match_id", using: :btree

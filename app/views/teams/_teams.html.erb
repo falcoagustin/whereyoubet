@@ -8,7 +8,7 @@
   <% @teams.each do |team| %>
     <div class="model-row">
       <label class="cell-large"> <%= team.name %> </label>
-      <label class="cell-small"> <%= team.country_id %> </label>
+      <label class="cell-small"> <%= team.country.name %> </label>
       <a data-confirm="Are you sure?"
          rel="nofollow"
          data-method="delete"

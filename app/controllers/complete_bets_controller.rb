@@ -1,7 +1,10 @@
 class CompleteBetsController < ApplicationController
-  before_action :user_signed_in?, :authenticate_user!
+  #before_action :user_signed_in?, :authenticate_user!
 
   def create
+    if !user_signed_in?
+      return redirect_to :back, should_be_logged: "You must log in to bet."
+    end
     complete_bet_params
     bet_object = params[:completeBet]
     amount = bet_object[:amount]
@@ -9,7 +12,7 @@ class CompleteBetsController < ApplicationController
     if bet_object.empty? || amount.nil?
       redirect_to :back
     else
-      validate_bets(bet_object)
+      validate_bets(bet_object, amount)
       @complete_bet = CompleteBet.new(
         :first_bet => @first_bet,
         :second_bet => @second_bet,
@@ -23,14 +26,15 @@ class CompleteBetsController < ApplicationController
   end
 
   private
-    def validate_bets(bet_object)
+    def validate_bets(bet_object, amount)
       now = DateTime.now
       if bet_object[:id1]
         @first_bet = Bet.new(
           :match_id => bet_object[:id1],
           bet_object[:select1] => true,
           :user_id => current_user.id,
-          :executed => now
+          :executed => now,
+          :amount => amount
         )
         @first_bet.save
       end
@@ -39,7 +43,8 @@ class CompleteBetsController < ApplicationController
           :match_id => bet_object[:id2],
           bet_object[:select2] => true,
           :user_id => current_user.id,
-          :executed => now
+          :executed => now,
+          :amount => amount
         )
         @second_bet.save
       end
@@ -48,7 +53,8 @@ class CompleteBetsController < ApplicationController
           :match_id => bet_object[:id3],
           bet_object[:select3] => true,
           :user_id => current_user.id,
-          :executed => now
+          :executed => now,
+          :amount => amount
         )
         @third_bet.save
       end

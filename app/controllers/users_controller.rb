@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   def edit_password
   end
 
+  def bet_history
+    @bets = Bet.where(user: current_user).order(executed: :desc)
+  end
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)

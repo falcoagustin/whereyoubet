@@ -16,10 +16,6 @@ function goToHome() {
   window.location = "/";
 }
 
-function hideAccountsDropdown() {
-  $('#accountsDropdown').css('display', 'none');
-}
-
 function toggleBet(match, buttonDOM) {
   button = $(buttonDOM);
   var length = betIds.length;
@@ -70,13 +66,3 @@ function toggleBetButton(button) {
     button.removeClass('bet-button-active');
   }
 }
-
-$( document ).ready(function() {
-  $("#accounts").hover(
-    function() { $('#accountsDropdown').css('display', 'block'); }
-  );
-  $("#accountsDropdown").hover(
-    function() { },
-    function() { $('#accountsDropdown').css('display', 'none'); }
-  );
-});

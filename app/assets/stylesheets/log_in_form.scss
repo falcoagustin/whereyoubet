@@ -15,6 +15,7 @@
     height: inherit;
     .log-row {
       margin-top: 13%;
+      text-align: center;
     }
     .log-button {
       margin-top: 10%;
@@ -24,7 +25,7 @@
       background-color: $forestgreen;
       color: $white;
       font-family: Copperplate, "Copperplate Gothic Light";
-      width: 100%;
+      width: 45%;
       &:hover{
         cursor:pointer;
         transition: transform 500ms;

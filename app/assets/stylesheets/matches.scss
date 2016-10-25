@@ -14,6 +14,9 @@
     font-weight: bold;
     border-bottom: .5px solid;
   }
+  &.no-borders {
+    border: none;
+  }
 }
 
 .bet-container {
@@ -25,6 +28,7 @@
   padding: 1%;
   width: 25%;
   height: 100%;
+  margin-top: 3%;
   display: inline-block;
   text-align: center;
   .user-bet-row {
@@ -45,7 +49,6 @@
   background-color: $white;
   border-radius: 3px;
   box-shadow: .5px .5px .5px rgba(0,0,0,0.75);
-  margin-top: 5%;
   ul {
     padding: 0;
     list-style: none;
@@ -78,22 +81,25 @@
   }
   .best-five-header,
   .best-five-row {
-    padding: 4px;
+    padding: 6px;
     width: 100%;
     height: 30px;
   }
   .best-five-row:nth-child(2n+1)
   {
-    background-color: #dfdfdf;
+    background-color: #F7F6F6;
   }
   .best-five-row:hover {
-    background-color: $grey;
+    background-color: #F1F1E4;
   }
   .best-five-header {
     background-color: #57c670;
+    font-family: Copperplate, "Copperplate Gothic Light";
+    color: $white;
   }
   .bet-button {
     border: 0.2px solid;
+    background-color: $white;
     font-family: Copperplate, "Copperplate Gothic Light";
     cursor: pointer;
     text-align: center;

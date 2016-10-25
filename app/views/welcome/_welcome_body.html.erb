@@ -1,11 +1,10 @@
 <body>
   <%= render 'menu_bar'%>
-  <div id="homeMenu" class="bm-panel">
-    <% if render_top_matches_only %>
-      <%= render 'matches/top_matches' %>
-    <% else%>
-      <%= render 'matches/all_matches' %>
-    <% end %>
+  <div id="homeMenu" class="bm-panel" >
+    <%= render 'matches/top_matches' %>
+  </div>
+  <div id="allMatches" class="bm-panel" hidden>
+    <%= render 'matches/all_matches' %>
   </div>
   <div id="signUpMenu" hidden>
     <%= render 'log_in_form', :create => true %>

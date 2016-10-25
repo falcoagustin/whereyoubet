@@ -3,7 +3,7 @@
   :html => {:class => "edit-profile-container", multipart: true},
   :method => "patch" do |u| %>
     <label class="bm-label">Edit your profile</label>
-    <%= image_tag(current_user.avatar.url, class: "edit-profile-img") %>
+    <%= image_tag(current_user.avatar.url, class: "edit-profile-img", size: "193") %>
     <%= u.file_field :avatar %>
     <div class="edit-profile-data">
       <div class="log-row">

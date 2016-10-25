@@ -16,7 +16,10 @@
           <li> <a href="/matches" class="bm-nav-option"> Matches </a> </li>
         <% end %>
         <div class="dropdown bm-nav-option">
-          <li> <a id="accounts" class="bm-nav-option"> <%= current_user.email %> </a> </li>
+          <li>
+            <a id="accounts" class="bm-nav-option"> <%= current_user.email %> </a>
+            <%= image_tag current_user.avatar.url(:thumb), size: "32"%>
+          </li>
           <div class="dropdown-content">
             <div><a class="dropdown-item" href="/users"> Edit profile </a></div>
             <div><a class="dropdown-item" href="/users/edit_password"> Change password </a></div>

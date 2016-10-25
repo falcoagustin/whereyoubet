@@ -1,12 +1,13 @@
 class CompleteBetsController < ApplicationController
-  #before_action :user_signed_in?, :authenticate_user!
+  before_action :user_signed_in?, :authenticate_user!
 
   def create
+    byebug
     complete_bet_params
     bet_object = params[:completeBet]
     amount = bet_object[:amount]
     bet_object = bet_object.except(:amount)
-    if bet_object.empty? || amount.nil?
+    if bet_object.empty? || amount.empty?
       redirect_to :back
     else
       validate_bets(bet_object, amount)

@@ -3,7 +3,6 @@ class CompleteBetsController < ApplicationController
 
   # TODO: handle errors
   def create
-    byebug
     complete_bet_params
     bet_object = params[:completeBet]
     amount = bet_object[:amount]

@@ -1,11 +1,15 @@
-var menuSelections = ['#homeMenu', '#logInMenu', '#signUpMenu'];
+var menuSelections = ['#homeMenu', '#allMatches', '#logInMenu', '#signUpMenu'];
 var betIds = [];
 
 function showSelectedMenu(selectedMenu) {
   for (var i = 0; i < menuSelections.length; i++) {
     var current = menuSelections[i];
     if (selectedMenu == current) {
-      $(current).fadeIn();
+      if (selectedMenu == '#logInMenu' || selectedMenu == '#signUpMenu'){
+        $(current).fadeIn();
+      }else {
+        $(current).css('display', 'flex').fadeIn();
+      }
     }else {
       $(current).fadeOut();
     }

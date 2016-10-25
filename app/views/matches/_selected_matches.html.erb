@@ -1,8 +1,13 @@
-<div class="user-bet-container">
-  <h1> Your bet! </h1>
-  <p class="error"><%= flash[:should_be_logged] %></p>
-  <%= form_tag("/complete_bets", method: "post", id: "completeBetForm") do %>
-    <input type="number" name="completeBet[amount]"/>
-    <button type="submit" class="bm-button"> Bet ! </button>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <div class="user-bet-container">
+    <h1> Your bet! </h1>
+    <%= form_tag("/complete_bets", method: "post", id: "completeBetForm") do %>
+      <input type="number" name="completeBet[amount]"/>
+      <button type="submit" class="bm-button"> Bet ! </button>
+    <% end %>
+  </div>
+<% else %>
+  <div class="user-bet-container">
+    <h1> Wanna bet? Sign or log in! </h1>
+  </div>
+<% end %>

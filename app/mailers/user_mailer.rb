@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
 
   def finished_bet_email(user, complete_bet)
     @user = user
-    @complete_bet = coomplete_bet
+    @complete_bet = complete_bet
     mail(to: @user.email, subject: 'Completed bet successfully.')
   end
 end

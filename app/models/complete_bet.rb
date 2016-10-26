@@ -6,7 +6,6 @@ class CompleteBet < ActiveRecord::Base
   after_create :send_email
 
   def send_email
-    byebug
     UserMailer.finished_bet_email(self.first_bet.user, self).deliver_later
   end
 

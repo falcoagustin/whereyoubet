@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   after_create :send_email
 
   def send_email
-    byebug
     UserMailer.welcome_email(self).deliver_later
   end
 

@@ -1,0 +1,19 @@
+Bet successfully done, <%= @user.email %>
+===============================================
+
+Your bet was:
+
+Id: <%= @complete_bet.id %>
+Amount: <%= @complete_bet.amount %>
+Matches bet:
+  <% if !@complete_bet.first_bet_id.nil? %>
+    => <%= @complete_bet.first_bet.match.visitor_team %> vs <%= @complete_bet.first_bet.match.local_team %>
+  <% end %>
+  <% if !@complete_bet.second_bet_id.nil? %>
+    => <%= @complete_bet.second_bet.match.visitor_team %> vs <%= @complete_bet.second_bet.match.local_team %>
+  <% end %>
+  <% if !@complete_bet.third_bet_id.nil? %>
+    => <%= @complete_bet.third_bet.match.visitor_team %> vs <%= @complete_bet.third_bet.match.local_team %>
+  <% end %>
+
+Thanks for betting and have a great day!

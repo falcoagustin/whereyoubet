@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
                     default_url: "default-person.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  after_create :send_email
+
+  def send_email
+    UserMailer.welcome_email(self).deliver_later
+  end
 
   def is_admin_user
     return self.is_admin

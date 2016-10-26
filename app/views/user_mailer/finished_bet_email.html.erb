@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p> Id: <%= @complete_bet.id %> </p>
+    <p> Amount: <%= @complete_bet.amount %> </p>
+    <p> Matches bet: </p>
+      <% if !@complete_bet.first_bet_id.nil? %>
+        <label> => <%= @complete_bet.first_bet.match.visitor_team.name %> vs <%= @complete_bet.first_bet.match.local_team.name %> </label>
+      <% end %>
+      <% if !@complete_bet.second_bet_id.nil? %>
+        <label> => <%= @complete_bet.second_bet.match.visitor_team.name %> vs <%= @complete_bet.second_bet.match.local_team.name %></label>
+      <% end %>
+      <% if !@complete_bet.third_bet_id.nil? %>
+        <label> => <%= @complete_bet.third_bet.match.visitor_team.name %> vs <%= @complete_bet.third_bet.match.local_team.name %> </label>
+      <% end %>
+  </body>
+</html>

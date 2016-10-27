@@ -7,6 +7,8 @@ gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'pg', '0.19.0'
+gem 'delayed_job_active_record'
+gem 'scss_lint', require: false
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

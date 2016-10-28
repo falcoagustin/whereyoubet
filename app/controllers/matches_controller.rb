@@ -19,7 +19,7 @@ class MatchesController < ApplicationController
 
   def import
     begin
-      Match.import(params[:file])
+      Match.delay.import(params[:file])
       redirect_to :back, notice: "Matches imported."
     rescue
       redirect_to :back, notice: "Invalid CSV file format."

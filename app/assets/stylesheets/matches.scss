@@ -9,10 +9,8 @@
 .best-five-bets,
 .hot-five-bets {
   padding: 1%;
-  border-right: .5px solid;
   h1 {
     font-weight: bold;
-    border-bottom: .5px solid;
   }
   &.no-borders {
     border: none;
@@ -46,21 +44,25 @@
 }
 
 .best-five-content {
-  background-color: $white;
   border-radius: 3px;
-  box-shadow: .5px .5px .5px rgba(0,0,0,0.75);
+  font-size: 17px;
   ul {
     padding: 0;
     list-style: none;
     li {
+      height: 100%;
       width: 16%;
       display: inline-block;
+      vertical-align: top;
       &.medium-row {
         width: 20%;
         text-overflow: ellipsis;
       }
       &.cell-tiny {
         width: 10%;
+      }
+      label {
+        margin:0;
       }
     }
   }
@@ -81,16 +83,15 @@
   }
   .best-five-header,
   .best-five-row {
-    padding: 6px;
     width: 100%;
-    height: 30px;
-  }
-  .best-five-row:nth-child(2n+1)
-  {
-    background-color: #F7F6F6;
+    margin: 2px 0;
+    background-color: $white;
+    padding: 5px;
+    border: .2px solid #aaaaaa;
   }
   .best-five-row:hover {
     background-color: #F1F1E4;
+    transform: scale(1.01);
   }
   .best-five-header {
     background-color: #57c670;

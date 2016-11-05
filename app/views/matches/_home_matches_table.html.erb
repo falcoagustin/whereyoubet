@@ -1,13 +1,11 @@
 <div class="best-five-content">
-  <div class="best-five-header">
-    <ul>
+    <ul class="best-five-header">
       <li><label> Local Rate </label></li>
       <li><label> Visitor Rate </label></li>
       <li><label> Tie Rate </label></li>
       <li class="double-row"><label> Match </label></li>
       <li></li>
     </ul>
-  </div>
   <% matches.each do |match| %>
     <div class="best-five-row">
       <div><span> <%= match.local_ratio %> </span></div>

@@ -6,7 +6,6 @@
     <ul>
       <% if local_assigns[:in_profile].nil? %>
         <li><a class="bm-nav-option" onclick="showSelectedMenu('#homeMenu');"> Home </a> </li>
-        <li><a class="bm-nav-option" onclick="showSelectedMenu('#allMatches');"> All bets! </a></li>
       <% else %>
         <li><a class="bm-nav-option" onclick="showSelectedMenu('#homeMenu');" href="/"> Home </a> </li>
       <% end %>

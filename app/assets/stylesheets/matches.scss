@@ -11,6 +11,7 @@
   padding: 1%;
   h1 {
     font-weight: bold;
+    margin-top: 0;
   }
   &.no-borders {
     border: none;
@@ -88,6 +89,7 @@
     background-color: $white;
     padding: 5px;
     border: .2px solid #aaaaaa;
+    border-radius: 3px;
   }
   .best-five-row:hover {
     background-color: #F1F1E4;

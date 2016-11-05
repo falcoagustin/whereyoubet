@@ -1,9 +1,11 @@
 @import "colors";
 .nav-bar {
-  background-color: $black;
+  background-color: rgba(5, 5, 5, .8);
   box-shadow: 0 1px rgba(0,0,0,0.3), 0 0 8px rgba(0,0,0,0.06);
-  //position: fixed;
+  position: fixed;
+  top: 0;
   width: 100%;
+  opacity: 1;
 
   .logo {
     display: inline-block;

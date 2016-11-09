@@ -1,18 +1,13 @@
-var menuSelections = ['#homeMenu', '#allMatches', '#logInMenu', '#signUpMenu'];
+var menuSelections = ['#logInMenu', '#signUpMenu'];
 var betIds = [];
 
 function showSelectedMenu(selectedMenu) {
-  for (var i = 0; i < menuSelections.length; i++) {
-    var current = menuSelections[i];
-    if (selectedMenu == current) {
-      if (selectedMenu == '#logInMenu' || selectedMenu == '#signUpMenu'){
-        $(current).fadeIn();
-      }else {
-        $(current).css('display', 'flex').fadeIn();
-      }
-    }else {
-      $(current).fadeOut();
-    }
+  var logIn = $('#logInMenu');
+  var signUp = $('#signUpMenu');
+  if (selectedMenu == '#logInMenu') {
+    signUp.fadeOut(200, () => logIn.fadeIn());
+  }else {
+    logIn.fadeOut(200, () => signUp.fadeIn());
   }
 }
 

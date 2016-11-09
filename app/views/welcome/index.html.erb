@@ -1,3 +1,4 @@
-<html>
-  <%= render 'welcome_body', :render_top_matches_only => true %>
-</html>
+<%= render 'welcome_body', :render_top_matches_only => true %>
+<% if user_signed_in? %>
+  <%= render 'footer' %>
+<% end %>

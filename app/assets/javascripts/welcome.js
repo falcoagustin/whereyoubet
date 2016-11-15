@@ -47,7 +47,7 @@ function addMatch(match) {
     '<label>' + match.visitor_ratio + '</label>' +
     '<label>' + match.tie_ratio + '</label>' +
     '<select name="completeBet[select' + betIds.length + ']"> <option value="bet_on_local"> Local </option> <option value="bet_on_visitor"> Visitor </option> <option value="bet_on_tie"> Tie </option></select>' +
-    '<div>' + match.name + '</div>'
+    '<label>' + match.name + '</label></div>'
   )
 }
 
@@ -64,4 +64,18 @@ function toggleBetButton(button) {
     button.addClass('bet-button-inactive');
     button.removeClass('bet-button-active');
   }
+}
+
+function hideBuys(){
+  $('#buyContainer').hide();
+  $('.user-bet-container').removeClass('full-bet-size');
+  $('.user-bet-container').addClass('cart-resize');
+  $('.cart').show();
+}
+
+function showBuys() {
+  $('.cart').hide();
+  $('.user-bet-container').addClass('full-bet-size');
+  $('.user-bet-container').removeClass('cart-resize');
+  setTimeout(() => $('#buyContainer').show(), 200);
 }

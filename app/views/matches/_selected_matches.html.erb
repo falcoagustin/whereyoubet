@@ -1,13 +1,11 @@
-<% if user_signed_in? %>
-  <div class="user-bet-container">
-    <h1> Your bet! </h1>
-    <%= form_tag("/complete_bets", method: "post", id: "completeBetForm") do %>
+<div class="user-bet-container cart-resize">
+  <span class="glyphicon glyphicon-shopping-cart cart" onclick="showBuys()" ></span>
+  <div id="buyContainer" hidden>
+    <span class="glyphicon glyphicon-chevron-down hide-down" onclick="hideBuys()"></span>
+    <%= form_tag("/complete_bets", method: "post", id: "completeBetForm", :class => 'complete-bet-form') do %>
+      <h1> Your bet! </h1>
       <input type="number" name="completeBet[amount]"/>
       <button type="submit" class="bm-button"> Bet ! </button>
     <% end %>
   </div>
-<% else %>
-  <div class="user-bet-container">
-    <h1> Wanna bet? Sign or log in! </h1>
-  </div>
-<% end %>
+</div>

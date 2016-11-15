@@ -1,18 +1,13 @@
-var menuSelections = ['#homeMenu', '#allMatches', '#logInMenu', '#signUpMenu'];
+var menuSelections = ['#logInMenu', '#signUpMenu'];
 var betIds = [];
 
 function showSelectedMenu(selectedMenu) {
-  for (var i = 0; i < menuSelections.length; i++) {
-    var current = menuSelections[i];
-    if (selectedMenu == current) {
-      if (selectedMenu == '#logInMenu' || selectedMenu == '#signUpMenu'){
-        $(current).fadeIn();
-      }else {
-        $(current).css('display', 'flex').fadeIn();
-      }
-    }else {
-      $(current).fadeOut();
-    }
+  var logIn = $('#logInMenu');
+  var signUp = $('#signUpMenu');
+  if (selectedMenu == '#logInMenu') {
+    signUp.fadeOut(200, () => logIn.fadeIn());
+  }else {
+    logIn.fadeOut(200, () => signUp.fadeIn());
   }
 }
 
@@ -52,7 +47,7 @@ function addMatch(match) {
     '<label>' + match.visitor_ratio + '</label>' +
     '<label>' + match.tie_ratio + '</label>' +
     '<select name="completeBet[select' + betIds.length + ']"> <option value="bet_on_local"> Local </option> <option value="bet_on_visitor"> Visitor </option> <option value="bet_on_tie"> Tie </option></select>' +
-    '<div>' + match.name + '</div>'
+    '<label>' + match.name + '</label></div>'
   )
 }
 
@@ -69,4 +64,18 @@ function toggleBetButton(button) {
     button.addClass('bet-button-inactive');
     button.removeClass('bet-button-active');
   }
+}
+
+function hideBuys(){
+  $('#buyContainer').hide();
+  $('.user-bet-container').removeClass('full-bet-size');
+  $('.user-bet-container').addClass('cart-resize');
+  $('.cart').show();
+}
+
+function showBuys() {
+  $('.cart').hide();
+  $('.user-bet-container').addClass('full-bet-size');
+  $('.user-bet-container').removeClass('cart-resize');
+  setTimeout(() => $('#buyContainer').show(), 200);
 }

@@ -11,6 +11,7 @@
   padding: 1%;
   h1 {
     font-weight: bold;
+    margin-top: 0;
   }
   &.no-borders {
     border: none;
@@ -18,17 +19,42 @@
 }
 
 .bet-container {
-  width: 75%;
+  width: 100%;
   display: inline-block;
 }
 
 .user-bet-container {
-  padding: 1%;
-  width: 25%;
-  height: 100%;
-  margin-top: 3%;
-  display: inline-block;
+  background-color: #228b22;
+  opacity: 0.9;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left: -320px;
+  border-radius: 10px 10px 0 0;
   text-align: center;
+  box-shadow: 0px 5px 23px 2px black;
+  border: .5px solid $black;
+  color: $white;
+  .hide-down {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+  .cart {
+    font-size: 40px;
+    padding: 5px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+  }
+  h1 {
+    display: inline-block;
+  }
+  .complete-bet-form {
+    display: inline-block;
+    vertical-align: middle;
+  }
   .user-bet-row {
     margin-bottom: 5%;
     label {
@@ -41,6 +67,18 @@
   button {
     margin-bottom: 8%;
   }
+}
+
+.cart-resize {
+  width: 70px;
+  margin-left: -35px;
+  transition: 200ms;
+}
+
+.full-bet-size {
+  width: 45%;
+  transition: 200ms;
+  min-height: 100px;
 }
 
 .best-five-content {
@@ -88,6 +126,7 @@
     background-color: $white;
     padding: 5px;
     border: .2px solid #aaaaaa;
+    border-radius: 3px;
   }
   .best-five-row:hover {
     background-color: #F1F1E4;

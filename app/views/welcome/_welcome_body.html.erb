@@ -1,15 +1,17 @@
-<body>
-  <%= render 'menu_bar'%>
-  <div id="homeMenu" class="bm-panel" >
+<%= render 'menu_bar'%>
+<% if user_signed_in? %>
+  <div class="bm-panel" >
     <%= render 'matches/top_matches' %>
   </div>
-  <div id="allMatches" class="bm-panel" hidden>
+  <div class="bm-panel" hidden>
     <%= render 'matches/all_matches' %>
   </div>
+  <%= render 'matches/selected_matches' %>
+<% else %>
   <div id="signUpMenu" hidden>
     <%= render 'log_in_form', :create => true %>
   </div>
-  <div id="logInMenu" hidden>
+  <div id="logInMenu">
     <%= render 'log_in_form', :create => false %>
   </div>
-</body>
+<% end %>

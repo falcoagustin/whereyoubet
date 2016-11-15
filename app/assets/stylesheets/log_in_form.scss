@@ -1,11 +1,6 @@
 @import "colors";
 .log-panel {
-  margin: 0 auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -250px;
-  margin-top: -250px;
+  margin: 100px auto;
   width:500px;
   background: $grey;
   box-shadow: 6px 6px 25px -1px rgba(0,0,0,0.75);

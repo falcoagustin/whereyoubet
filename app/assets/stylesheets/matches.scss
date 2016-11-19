@@ -104,16 +104,17 @@
       }
     }
   }
+  &.double-row {
+    width: 32%;
+  }
   div {
     width: 16%;
     display: inline-block;
-    &.double-row {
-      width: 32%;
-      text-overflow: ellipsis;
-    }
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     &.medium-row {
       width: 20%;
-      text-overflow: ellipsis;
     }
     &.cell-tiny {
       width: 10%;
@@ -127,6 +128,16 @@
     padding: 5px;
     border: .2px solid #aaaaaa;
     border-radius: 3px;
+
+    &.row-active {
+      background-color: $forestgreen;
+      color: $white;
+
+      &:hover {
+        transform: scale(1.01);
+        background-color: $forestgreen;
+      }
+    }
   }
   .best-five-row:hover {
     background-color: #F1F1E4;

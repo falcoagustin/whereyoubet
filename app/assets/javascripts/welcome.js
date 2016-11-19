@@ -1,5 +1,16 @@
-var menuSelections = ['#logInMenu', '#signUpMenu'];
+const menuSelections = ['#logInMenu', '#signUpMenu'];
+const betValues = {
+  bet_on_local: 'Local',
+  bet_on_visitor: 'Visitor',
+  bet_on_tie: 'Tie'
+}
 var betIds = [];
+
+$(document).ready(function(){
+  $('select').click(function(e){
+    e.stopPropagation();
+  });
+});
 
 function showSelectedMenu(selectedMenu) {
   var logIn = $('#logInMenu');
@@ -15,45 +26,69 @@ function goToHome() {
   window.location = "/";
 }
 
-function toggleBet(match, buttonDOM) {
-  button = $(buttonDOM);
+function toggleBet(matchId) {
   var length = betIds.length;
-  var matchId = match.id;
+  var matchId = matchId;
   var index = betIds.indexOf(matchId);
   if (length == 3 && index == -1) return;
   if (length == 3 && index != -1) {
-    //betIds.pop(matchId);
     removeMatch(index, matchId);
-    toggleBetButton(button);
+    toggleBetRow(matchId);
     return;
   }
   if (length < 3){
     if (index == -1) {
+      var match = buildMatchFromHtml(matchId);
       addMatch(match);
     }else {
-      //betIds.pop(matchId);
       removeMatch(index, matchId);
     }
-    toggleBetButton(button);
+    toggleBetRow(matchId);
   }
+}
+
+function buildMatchFromHtml(matchId) {
+  var matchDOMContainer = $('#match' + matchId)
+  var modelDOMelem = matchDOMContainer.find('div');
+  var selectDOM = matchDOMContainer.find('select');
+
+  // TODO: Find a better way to do this.
+  var name = $(modelDOMelem[0]).data('name');
+  var local_ratio = $(modelDOMelem[1]).data('local-ratio');
+  var visitor_ratio = $(modelDOMelem[2]).data('visitor-ratio');
+  var tie_ratio = $(modelDOMelem[3]).data('tie-ratio');
+  var betOn = parseBetValue(selectDOM[0].value);
+
+  return {
+    id: matchId,
+    name: name,
+    local_ratio: local_ratio,
+    visitor_ratio: visitor_ratio,
+    tie_ratio: tie_ratio,
+    betOn: betOn
+  }
+}
+
+function parseBetValue(value) {
+  return betValues[value];
 }
 
 function addMatch(match) {
   betIds.push(match.id);
   var form = $('#completeBetForm').append(
-    '<div class="user-bet-row" id="match'+ match.id + '">' +
+    '<div class="user-bet-row" id="betMatch'+ match.id + '">' +
     '<input type="hidden" name="completeBet[id' + betIds.length + ']" value="' + match.id + '"/>' +
     '<label>' + match.local_ratio + '</label>' +
     '<label>' + match.visitor_ratio + '</label>' +
     '<label>' + match.tie_ratio + '</label>' +
-    '<select name="completeBet[select' + betIds.length + ']"> <option value="bet_on_local"> Local </option> <option value="bet_on_visitor"> Visitor </option> <option value="bet_on_tie"> Tie </option></select>' +
+    '<label>' + match.betOn + '</label>' +
     '<label>' + match.name + '</label></div>'
   )
 }
 
 function removeMatch(index, matchId) {
   betIds.splice(index, 1);
-  $('#match' + matchId).remove();
+  $('#betMatch' + matchId).remove();
 }
 
 function toggleBetButton(button) {
@@ -63,6 +98,15 @@ function toggleBetButton(button) {
   } else {
     button.addClass('bet-button-inactive');
     button.removeClass('bet-button-active');
+  }
+}
+
+function toggleBetRow(betId) {
+  var betRow = $('#match' + betId);
+  if (betRow.attr('class').includes('active')) {
+    betRow.removeClass('row-active');
+  } else {
+    betRow.addClass('row-active');
   }
 }
 

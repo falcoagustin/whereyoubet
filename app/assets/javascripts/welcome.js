@@ -105,8 +105,10 @@ function toggleBetRow(betId) {
   var betRow = $('#match' + betId);
   if (betRow.attr('class').includes('active')) {
     betRow.removeClass('row-active');
+    betRow.find('select').prop('disabled', false);
   } else {
     betRow.addClass('row-active');
+    betRow.find('select').prop('disabled', true);
   }
 }
 

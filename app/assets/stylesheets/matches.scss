@@ -132,7 +132,9 @@
     &.row-active {
       background-color: $forestgreen;
       color: $white;
-
+      select {
+        background-color: #57c670;
+      }
       &:hover {
         transform: scale(1.01);
         background-color: $forestgreen;

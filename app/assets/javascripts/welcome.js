@@ -1,9 +1,4 @@
 const menuSelections = ['#logInMenu', '#signUpMenu'];
-const betValues = {
-  bet_on_local: 'Local',
-  bet_on_visitor: 'Visitor',
-  bet_on_tie: 'Tie'
-}
 var betIds = [];
 
 $(document).ready(function(){
@@ -16,6 +11,11 @@ $(document).ready(function(){
   $('select').click(function(e){
     e.stopPropagation();
   });
+  $('.best-five-row').click(function(e){
+    let betTableHandler = new BetTableHandler();
+    betTableHandler.toggleBet($(this).data('id'));
+  });
+
 });
 
 function showSelectedMenu(selectedMenu) {
@@ -32,72 +32,72 @@ function goToHome() {
   window.location = "/";
 }
 
-function toggleBet(matchId) {
-  let betHandler = new BetHandler();
-  var length = betIds.length;
-  var matchId = matchId;
-  var index = betIds.indexOf(matchId);
-  if (length == 3 && index == -1) return;
-  if (length == 3 && index != -1) {
-    betHandler.removeMatch(index, matchId);
-    toggleBetRow(matchId);
-    return;
+class BetTableHandler {
+  constructor() {
+    this._betValues = {
+      bet_on_local: 'Local',
+      bet_on_visitor: 'Visitor',
+      bet_on_tie: 'Tie'
+    };
+    this.betHandler = new BetHandler();
   }
-  if (length < 3){
-    if (index == -1) {
-      var match = buildMatchFromHtml(matchId);
-      betHandler.addMatch(match);
-    }else {
-      betHandler.removeMatch(index, matchId);
+
+  buildMatchFromHtml(matchId) {
+    var matchDOMContainer = $('#match' + matchId)
+    var modelDOMelem = matchDOMContainer.find('div');
+    var selectDOM = matchDOMContainer.find('select');
+
+    // TODO: Find a better way to do this.
+    var name = $(modelDOMelem[0]).data('name');
+    var local_ratio = $(modelDOMelem[1]).data('local-ratio');
+    var visitor_ratio = $(modelDOMelem[2]).data('visitor-ratio');
+    var tie_ratio = $(modelDOMelem[3]).data('tie-ratio');
+    var betOn = this.parseBetValue(selectDOM[0].value);
+
+    return {
+      id: matchId,
+      name: name,
+      local_ratio: local_ratio,
+      visitor_ratio: visitor_ratio,
+      tie_ratio: tie_ratio,
+      betOn: betOn
     }
-    toggleBetRow(matchId);
   }
-}
 
-function buildMatchFromHtml(matchId) {
-  var matchDOMContainer = $('#match' + matchId)
-  var modelDOMelem = matchDOMContainer.find('div');
-  var selectDOM = matchDOMContainer.find('select');
-
-  // TODO: Find a better way to do this.
-  var name = $(modelDOMelem[0]).data('name');
-  var local_ratio = $(modelDOMelem[1]).data('local-ratio');
-  var visitor_ratio = $(modelDOMelem[2]).data('visitor-ratio');
-  var tie_ratio = $(modelDOMelem[3]).data('tie-ratio');
-  var betOn = parseBetValue(selectDOM[0].value);
-
-  return {
-    id: matchId,
-    name: name,
-    local_ratio: local_ratio,
-    visitor_ratio: visitor_ratio,
-    tie_ratio: tie_ratio,
-    betOn: betOn
+  toggleBet(matchId) {
+    var length = this.betHandler.amountOfBets();
+    var matchId = matchId;
+    var index = betIds.indexOf(matchId);
+    if (length == 3 && index == -1) return;
+    if (length == 3 && index != -1) {
+      this.betHandler.removeMatch(index, matchId);
+      this.toggleBetRow(matchId);
+      return;
+    }
+    if (length < 3){
+      if (index == -1) {
+        var match = this.buildMatchFromHtml(matchId);
+        this.betHandler.addMatch(match);
+      }else {
+        this.betHandler.removeMatch(index, matchId);
+      }
+      this.toggleBetRow(matchId);
+    }
   }
-}
 
-function parseBetValue(value) {
-  return betValues[value];
-}
-
-function toggleBetButton(button) {
-  if (button.attr('class').includes('inactive')) {
-    button.addClass('bet-button-active');
-    button.removeClass('bet-button-inactive');
-  } else {
-    button.addClass('bet-button-inactive');
-    button.removeClass('bet-button-active');
+  toggleBetRow(betId) {
+    var betRow = $('#match' + betId);
+    if (betRow.attr('class').includes('active')) {
+      betRow.removeClass('row-active');
+      betRow.find('select').prop('disabled', false);
+    } else {
+      betRow.addClass('row-active');
+      betRow.find('select').prop('disabled', true);
+    }
   }
-}
 
-function toggleBetRow(betId) {
-  var betRow = $('#match' + betId);
-  if (betRow.attr('class').includes('active')) {
-    betRow.removeClass('row-active');
-    betRow.find('select').prop('disabled', false);
-  } else {
-    betRow.addClass('row-active');
-    betRow.find('select').prop('disabled', true);
+  parseBetValue(value) {
+    return this._betValues[value];
   }
 }
 
@@ -137,4 +137,28 @@ class BetHandler {
     this.betIds.splice(index, 1);
     $('#betMatch' + matchId).remove();
   }
+
+  amountOfBets() {
+    return this.betIds.length;
+  }
 }
+//
+// const BetHandler = (function() {
+//   // STATIC AND PRIVATE
+//   const algo;
+//   let algo;
+//   function algo() {}
+//   class BetHandler {
+//
+//   }
+//
+//   function create(...) {
+//     return new BetHandler(...);
+//   }
+//
+//   return {
+//     create
+//   }
+// })();
+//
+// BetHandler.crete(....)

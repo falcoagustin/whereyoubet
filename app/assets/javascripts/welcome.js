@@ -1,5 +1,4 @@
 const menuSelections = ['#logInMenu', '#signUpMenu'];
-var betIds = [];
 
 $(document).ready(function(){
   $('#shoppingCart').click(function(e) {
@@ -15,7 +14,6 @@ $(document).ready(function(){
     let betTableHandler = new BetTableHandler();
     betTableHandler.toggleBet($(this).data('id'));
   });
-
 });
 
 function showSelectedMenu(selectedMenu) {
@@ -142,23 +140,3 @@ class BetHandler {
     return this.betIds.length;
   }
 }
-//
-// const BetHandler = (function() {
-//   // STATIC AND PRIVATE
-//   const algo;
-//   let algo;
-//   function algo() {}
-//   class BetHandler {
-//
-//   }
-//
-//   function create(...) {
-//     return new BetHandler(...);
-//   }
-//
-//   return {
-//     create
-//   }
-// })();
-//
-// BetHandler.crete(....)

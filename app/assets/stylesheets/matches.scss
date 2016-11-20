@@ -99,6 +99,9 @@
       &.cell-tiny {
         width: 10%;
       }
+      &.cell-small {
+        width: 14%;
+      }
       label {
         margin:0;
       }
@@ -118,6 +121,9 @@
     }
     &.cell-tiny {
       width: 10%;
+    }
+    &.cell-small {
+      width: 14%;
     }
   }
   .best-five-header,

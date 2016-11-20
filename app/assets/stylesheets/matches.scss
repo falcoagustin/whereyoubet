@@ -54,6 +54,11 @@
   .complete-bet-form {
     display: inline-block;
     vertical-align: middle;
+
+    input[type="number"] {
+      color: $black;
+
+    }
   }
   .user-bet-row {
     margin-bottom: 5%;

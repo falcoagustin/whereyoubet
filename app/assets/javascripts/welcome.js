@@ -1,6 +1,7 @@
 const menuSelections = ['#logInMenu', '#signUpMenu'];
 
 $(document).ready(function(){
+  let betTableHandler = new BetTableHandler();
   $('#shoppingCart').click(function(e) {
     BetHandler.showBuys();
   });
@@ -11,7 +12,6 @@ $(document).ready(function(){
     e.stopPropagation();
   });
   $('.best-five-row').click(function(e){
-    let betTableHandler = new BetTableHandler();
     betTableHandler.toggleBet($(this).data('id'));
   });
 });
@@ -51,6 +51,7 @@ class BetTableHandler {
     var visitor_ratio = $(modelDOMelem[2]).data('visitor-ratio');
     var tie_ratio = $(modelDOMelem[3]).data('tie-ratio');
     var betOn = this.parseBetValue(selectDOM[0].value);
+    var betOnValue = selectDOM[0].value;
 
     return {
       id: matchId,
@@ -58,14 +59,15 @@ class BetTableHandler {
       local_ratio: local_ratio,
       visitor_ratio: visitor_ratio,
       tie_ratio: tie_ratio,
-      betOn: betOn
+      betOn: betOn,
+      betOnValue: betOnValue
     }
   }
 
   toggleBet(matchId) {
-    var length = this.betHandler.amountOfBets();
+    var length = this.betHandler.getCurrentBetLenght();
     var matchId = matchId;
-    var index = betIds.indexOf(matchId);
+    var index = this.betHandler.getIndex(matchId);
     if (length == 3 && index == -1) return;
     if (length == 3 && index != -1) {
       this.betHandler.removeMatch(index, matchId);
@@ -108,11 +110,12 @@ class BetHandler {
     this.betIds.push(match.id);
     var form = $('#completeBetForm').append(
       '<div class="user-bet-row" id="betMatch'+ match.id + '">' +
-      '<input type="hidden" name="completeBet[id' + betIds.length + ']" value="' + match.id + '"/>' +
+      '<input type="hidden" name="completeBet[id' + this.betIds.length + ']" value="' + match.id + '"/>' +
       '<label>' + match.local_ratio + '</label>' +
       '<label>' + match.visitor_ratio + '</label>' +
       '<label>' + match.tie_ratio + '</label>' +
       '<label>' + match.betOn + '</label>' +
+      '<input type="hidden" name="completeBet[select' + this.betIds.length + ']" value="' + match.betOnValue + '"/>' +
       '<label>' + match.name + '</label></div>'
     )
   }
@@ -136,7 +139,11 @@ class BetHandler {
     $('#betMatch' + matchId).remove();
   }
 
-  amountOfBets() {
+  getCurrentBetLenght() {
     return this.betIds.length;
+  }
+
+  getIndex(id) {
+    return this.betIds.indexOf(id);
   }
 }

@@ -1,31 +1,30 @@
-@import "colors";
+@import 'colors';
 
 html {
   font-family: 'Ubuntu', sans-serif;
-  height:100%;
+  height: 100%;
   width: 100%;
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif !important;
-  background-image: url(<%= asset_path 'goal-blur.jpg' %>);
+  background-image: url(<%= asset_path 'goal-blur.jpg' %>); //scss-lint:disable Error
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
-  // background: linear-gradient(90deg, #666699, rgba(#165998, 0.92));
+  font-family: 'Ubuntu', sans-serif !important; //scss-lint:disable ImportantRule
 }
 
-.bm-input{
+.bm-input {
   display: block;
-  margin-left: 12%;
   font-size: 17px;
-  width: 75%;
   height: 35px;
+  margin-left: 12%;
+  width: 75%;
 }
 
 .bm-label {
-  text-align: center;
   display: block;
+  text-align: center;
 }
 
 .bm-title {

@@ -1,5 +1,3 @@
-const menuSelections = ['#logInMenu', '#signUpMenu'];
-
 $(document).ready(function(){
   let betTableHandler = new BetTableHandler();
   $('#shoppingCart').click(function(e) {
@@ -16,18 +14,21 @@ $(document).ready(function(){
   });
 });
 
-function showSelectedMenu(selectedMenu) {
-  var logIn = $('#logInMenu');
-  var signUp = $('#signUpMenu');
-  if (selectedMenu == '#logInMenu') {
-    signUp.fadeOut(200, () => logIn.fadeIn());
-  }else {
-    logIn.fadeOut(200, () => signUp.fadeIn());
-  }
-}
+class MainHandler {
 
-function goToHome() {
-  window.location = "/";
+  static showSelectedMenu(selectedMenu) {
+    var logIn = $('#logInMenu');
+    var signUp = $('#signUpMenu');
+    if (selectedMenu == '#logInMenu') {
+      signUp.fadeOut(200, () => logIn.fadeIn());
+    }else {
+      logIn.fadeOut(200, () => signUp.fadeIn());
+    }
+  }
+
+  static goToHome() {
+    window.location = "/";
+  }
 }
 
 class BetTableHandler {

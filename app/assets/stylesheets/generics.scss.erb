@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background-image: url(<%= asset_path 'goal-blur.jpg' %>); //scss-lint:disable Error
+  //background-image: url(<%= asset_path 'goal-blur.jpg' %>); //scss-lint:disable Error
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
@@ -28,29 +28,29 @@ body {
 }
 
 .bm-title {
+  font-family: Copperplate, "Copperplate Gothic Light";
   margin-bottom: 10px;
   text-align: center;
-  font-family: Copperplate, "Copperplate Gothic Light";
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
-    z-index: 999;
+  display: inline-block;
+  position: relative;
+  z-index: 999;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    right: 5px;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    text-align: left;
+  background-color: $lighter-white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+  display: none;
+  min-width: 160px;
+  position: absolute;
+  right: 5px;
+  text-align: left;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
 .dropdown-item {

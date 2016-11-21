@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+  before_action :user_signed_in?, :authenticate_user!
   def index
     @matches = Match.all
   end

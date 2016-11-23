@@ -1,5 +1,8 @@
 class MatchesController < ApplicationController
-  before_action :user_signed_in?, :authenticate_user!
+  include UsersHelper
+
+  before_action :user_signed_in?, :authenticate_user!, :restrict_user_access
+
   def index
     @matches = Match.all
   end
@@ -32,4 +35,5 @@ class MatchesController < ApplicationController
       params.require(:match).permit(:time, :local_ratio, :visitor_ratio,
         :tie_ratio, :local_team_id, :visitor_team_id)
     end
+
 end

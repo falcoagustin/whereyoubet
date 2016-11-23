@@ -1,5 +1,8 @@
 class TeamsController < ApplicationController
-  before_action :user_signed_in?, :authenticate_user!
+  include UsersHelper
+
+  before_action :user_signed_in?, :authenticate_user!, :restrict_user_access
+
   def index
     @teams = Team.all
   end

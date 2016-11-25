@@ -17,7 +17,7 @@
             <%= image_tag current_user.avatar.url(:thumb), size: "32"%>
           </li>
           <div class="dropdown-content">
-            <div><a class="dropdown-item" href="/users"> Edit profile </a></div>
+            <div><a class="dropdown-item" href="/users/edit_profile"> Edit profile </a></div>
             <div><a class="dropdown-item" href="/users/edit_password"> Change password </a></div>
             <div> <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item") %> </div>
             <div>

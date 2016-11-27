@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'babel-transpiler'
 gem 'devise'
 gem "paperclip", "~> 5.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -50,4 +50,8 @@ group :development do
   gem 'sqlite3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'pg', '0.19.0'
 end

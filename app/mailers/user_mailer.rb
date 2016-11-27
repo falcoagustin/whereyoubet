@@ -1,5 +1,6 @@
 class UserMailer < ApplicationMailer
   default from: 'notifications@betmatch.com'
+  include Sidekiq::Worker
 
   def welcome_email(user)
     @user = user

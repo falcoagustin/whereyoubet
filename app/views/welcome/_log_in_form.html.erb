@@ -3,6 +3,11 @@
     <%= form_tag("/users/sign_in", method: "post", class: "log-form") do %>
     <!--<form class="log-form" action="/users/sign_in" method="POST"> -->
       <h2 class="bm-label">Log in</h2>
+      <label class="error bm-label">
+        <% if flash[:login_error] %>
+          <%= flash[:login_error] %>
+        <% end %>
+      </label>
       <div class="log-row">
         <h4>Email</h4>
         <input class="bm-input"  name="user[email]" type="text"/>

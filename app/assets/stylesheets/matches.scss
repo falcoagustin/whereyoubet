@@ -1,7 +1,8 @@
 // Place all the styles related to the Matches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "colors";
+@import 'colors';
+
 .csv-form {
   margin-top: 7%;
 }
@@ -9,171 +10,200 @@
 .best-five-bets,
 .hot-five-bets {
   padding: 1%;
+
   h1 {
     font-weight: bold;
     margin-top: 0;
   }
+
   &.no-borders {
-    border: none;
+    border: 0;
   }
 }
 
 .bet-container {
-  width: 100%;
   display: inline-block;
+  min-height: 665px;
+  width: 100%;
 }
 
 .user-bet-container {
-  background-color: #228b22;
-  opacity: 0.9;
-  position: fixed;
+  background-color: $forestgreen;
+  border: .5px solid $black;
+  border-radius: 10px 10px 0 0;
   bottom: 0;
+  box-shadow: 0 5px 23px 2px $black;
+  color: $white;
   left: 50%;
   margin-left: -320px;
-  border-radius: 10px 10px 0 0;
+  opacity: .9;
+  position: fixed;
   text-align: center;
-  box-shadow: 0px 5px 23px 2px black;
-  border: .5px solid $black;
-  color: $white;
+
   .hide-down {
-    position: absolute;
+    cursor: pointer;
     left: 10px;
+    position: absolute;
     top: 10px;
-    cursor: pointer;
   }
+
   .cart {
-    font-size: 40px;
-    padding: 5px;
     cursor: pointer;
-    width: 60px;
+    font-size: 40px;
     height: 60px;
+    padding: 5px;
+    width: 60px;
   }
+
   h1 {
     display: inline-block;
   }
+
   .complete-bet-form {
     display: inline-block;
     vertical-align: middle;
 
-    input[type="number"] {
+    input[type="number"] { // scss-lint:disable QualifyingElement
       color: $black;
 
     }
   }
+
   .user-bet-row {
     margin-bottom: 5%;
+
     label {
       width: 20%;
     }
+
     div {
       display: block;
     }
   }
+
   button {
     margin-bottom: 8%;
   }
 }
 
 .cart-resize {
-  width: 70px;
   margin-left: -35px;
   transition: 200ms;
+  width: 70px;
 }
 
 .full-bet-size {
-  width: 45%;
-  transition: 200ms;
   min-height: 100px;
+  transition: 200ms;
+  width: 45%;
 }
 
 .best-five-content {
   border-radius: 3px;
   font-size: 17px;
+
   ul {
-    padding: 0;
     list-style: none;
+    padding: 0;
+
     li {
-      height: 100%;
-      width: 16%;
       display: inline-block;
+      height: 100%;
       vertical-align: top;
+      width: 16%;
+
       &.medium-row {
-        width: 20%;
         text-overflow: ellipsis;
+        width: 20%;
       }
+
       &.cell-tiny {
         width: 10%;
       }
+
       &.cell-small {
         width: 14%;
       }
+
       label {
-        margin:0;
+        margin: 0;
       }
     }
   }
+
   &.double-row {
     width: 32%;
   }
+
   div {
-    width: 16%;
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 16%;
 
     &.medium-row {
       width: 20%;
     }
+
     &.cell-tiny {
       width: 10%;
     }
+
     &.cell-small {
       width: 14%;
     }
   }
+
   .best-five-header,
   .best-five-row {
-    width: 100%;
-    margin: 2px 0;
     background-color: $white;
-    padding: 5px;
-    border: .2px solid #aaaaaa;
+    border: .2px solid $deeper-gray;
     border-radius: 3px;
+    margin: 2px 0;
+    padding: 5px;
+    width: 100%;
 
     &.row-active {
       background-color: $forestgreen;
       color: $white;
+
       select {
-        background-color: #57c670;
+        background-color: $lighter-green;
       }
+
       &:hover {
-        transform: scale(1.01);
         background-color: $forestgreen;
+        transform: scale(1.01);
       }
     }
   }
+
   .best-five-row:hover {
-    background-color: #F1F1E4;
+    background-color: $cream;
     transform: scale(1.01);
   }
+
   .best-five-header {
-    background-color: #57c670;
-    font-family: Copperplate, "Copperplate Gothic Light";
+    background-color: $lighter-green;
     color: $white;
-  }
-  .bet-button {
-    border: 0.2px solid;
-    background-color: $white;
     font-family: Copperplate, "Copperplate Gothic Light";
+  }
+
+  .bet-button {
+    background-color: $white;
+    border: .2px solid;
     cursor: pointer;
+    font-family: Copperplate, "Copperplate Gothic Light";
     text-align: center;
     width: 8%;
+
     &-inactive {
       border-radius: 3px;
     }
+
     &-active {
-      border-radius: 3px;
       background-color: $forestgreen;
+      border-radius: 3px;
       color: $white;
     }
   }

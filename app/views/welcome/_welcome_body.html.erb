@@ -1,11 +1,16 @@
 <%= render 'menu_bar'%>
 <% if user_signed_in? %>
-  <div class="bm-panel" >
-    <%= render 'matches/top_matches' %>
-  </div>
-  <div class="bm-panel" hidden>
-    <%= render 'matches/all_matches' %>
-  </div>
+  <%= render_top_matches_only %>
+  <% if render_top_matches_only  %>
+      <div class="bm-panel" >
+      <%= render 'matches/top_matches' %>
+    </div>
+  <% end %>
+  <% if !render_top_matches_only %>
+    <div class="bm-panel">
+      <%= render 'matches/all_matches' %>
+    </div>
+  <% end %>
   <%= render 'matches/selected_matches' %>
 <% else %>
   <div id="signUpMenu" hidden>

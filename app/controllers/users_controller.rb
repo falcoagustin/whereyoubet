@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  # skip_before_action :verify_authenticity_token
+  include UsersHelper
+
+  before_action :user_signed_in?, :authenticate_user!, :restrict_user_access
+
   def edit_profile
   end
 

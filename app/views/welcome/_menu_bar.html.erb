@@ -1,32 +1,28 @@
 <div class="nav-bar">
   <div class="logo">
-    <label onclick="goToHome()">BetMatch </label>
+    <label onclick="MainHandler.goToHome()">BetMatch</label>
   </div>
   <div class="options">
     <ul>
-      <% if local_assigns[:in_profile].nil? %>
-        <li><a class="bm-nav-option" onclick="showSelectedMenu('#homeMenu');"> Home </a> </li>
-        <li><a class="bm-nav-option" onclick="showSelectedMenu('#allMatches');"> All bets! </a></li>
-      <% else %>
-        <li><a class="bm-nav-option" onclick="showSelectedMenu('#homeMenu');" href="/"> Home </a> </li>
-      <% end %>
       <% if user_signed_in? %>
+        <li><a class="bm-nav-option" href="/"> Home </a> </li>
         <% if current_user.is_admin_user %>
           <li> <a href="/teams" class="bm-nav-option"> Teams </a> </li>
           <li> <a href="/matches" class="bm-nav-option"> Matches </a> </li>
         <% end %>
+        <li><a href="/allbets" class="bm-nav-option">All bets!</a></li>
         <div class="dropdown bm-nav-option">
           <li>
             <a id="accounts" class="bm-nav-option"> <%= current_user.email %> </a>
             <%= image_tag current_user.avatar.url(:thumb), size: "32"%>
           </li>
           <div class="dropdown-content">
-            <div><a class="dropdown-item" href="/users"> Edit profile </a></div>
+            <div><a class="dropdown-item" href="/users/edit_profile"> Edit profile </a></div>
             <div><a class="dropdown-item" href="/users/edit_password"> Change password </a></div>
             <div> <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item") %> </div>
             <div>
-              <div class="dropdown-separator dropdown-item">
-                <a onclick="hideAccountsDropdown()" href="/users/bet_history"> Bet History </a>
+              <div class="dropdown-separator">
+                <a class="dropdown-item"  href="/users/bet_history"> Bet History </a>
               </div>
             </div>
           </div>
@@ -35,8 +31,8 @@
         <div class="dropdown bm-nav-option">
           <li> <a id="accounts" class="bm-nav-option"> Accounts </a></li>
           <div class="dropdown-content">
-            <div><a class="dropdown-item" onclick="showSelectedMenu('#signUpMenu');"> Sign up </a></div>
-            <div><a class="dropdown-item" onclick="showSelectedMenu('#logInMenu');"> Log in </a></div>
+            <div><a class="dropdown-item" onclick="MainHandler.showSelectedMenu('#signUpMenu');"> Sign up </a></div>
+            <div><a class="dropdown-item dropdown-separator" onclick="MainHandler.showSelectedMenu('#logInMenu');"> Log in </a></div>
           </div>
         </div>
       <% end %>

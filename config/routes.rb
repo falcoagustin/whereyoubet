@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
-  get '/users',  to: 'users#edit_profile'
+  get '/users/edit_profile',  to: 'users#edit_profile'
   get '/users/edit_password', to: 'users#edit_password'
   get '/users/bet_history', to: 'users#bet_history'
-
+  get '/allbets', to: 'welcome#all_bets'
   resources :users
   root 'welcome#index'
 

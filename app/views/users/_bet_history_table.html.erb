@@ -4,10 +4,10 @@
     <div class="best-five-content">
       <div class="best-five-header">
         <ul>
-          <li><label> Time </label></li>
-          <li class="cell-tiny"><label> Local Rate </label></li>
-          <li class="cell-tiny"><label> Visitor Rate </label></li>
-          <li class="cell-tiny"><label> Tie Rate </label></li>
+          <li class="cell-tiny"><label> Time </label></li>
+          <li class="cell-small"><label> Local Rate </label></li>
+          <li class="cell-small"><label> Visitor Rate </label></li>
+          <li class="cell-small"><label> Tie Rate </label></li>
           <li class="medium-row"><label> Match </label></li>
           <li><label> Amount </label></li>
           <li class="cell-tiny"><label> Your Bet </label></li>
@@ -15,10 +15,10 @@
       </div>
       <% @bets.each do |bet| %>
         <div class="best-five-row">
-          <div><span> <%= bet.executed %> </span></div>
-          <div class="cell-tiny"><span> <%= bet.match.local_ratio %> </span></div>
-          <div class="cell-tiny"><span> <%= bet.match.visitor_ratio %> </span></div>
-          <div class="cell-tiny"><span> <%= bet.match.tie_ratio %> </span></div>
+          <div class="cell-tiny"><span> <%= bet.executed.strftime('%Y-%m-%d') %> </span></div>
+          <div class="cell-small"><span> <%= bet.match.local_ratio %> </span></div>
+          <div class="cell-small"><span> <%= bet.match.visitor_ratio %> </span></div>
+          <div class="cell-small"><span> <%= bet.match.tie_ratio %> </span></div>
           <div class="medium-row">
             <span> <%= bet.match.local_team.name %> </span>
             <label> vs </label>

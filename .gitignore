@@ -17,3 +17,6 @@
 /tmp
 public/*
 .byebug_history
+*.csv
+Gemfile.lock
+*.rdb

@@ -39,10 +39,6 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.5.3)
       execjs
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -194,7 +190,6 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  babel-transpiler
   bootstrap-sass (~> 3.2.0)
   byebug
   coffee-rails (~> 4.1.0)

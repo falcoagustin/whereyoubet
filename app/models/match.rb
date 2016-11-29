@@ -4,6 +4,7 @@ class Match < ActiveRecord::Base
   belongs_to :visitor_team, :class_name => 'Team', :foreign_key => 'visitor_team_id'
   has_many :teams
   has_many :bets
+  has_one :match_result
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|

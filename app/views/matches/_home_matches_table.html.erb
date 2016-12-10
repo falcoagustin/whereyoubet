@@ -8,7 +8,7 @@
       <li><label> Your bet </label></li>
     </ul>
   <% matches.each do |match| %>
-    <div class="best-five-row clickable" data-id="<%= match.id %>" id="match<%= match.id %>">
+    <div class="best-five-row clickable" onclick="toggleBet(<%=match.id%>)" data-id="<%= match.id %>" id="match<%= match.id %>">
       <div class="double-row" data-name="<%= match.local_team.name %> vs <%= match.visitor_team.name %>">
         <span> <%= match.local_team.name %> </span>
         <label> vs </label>

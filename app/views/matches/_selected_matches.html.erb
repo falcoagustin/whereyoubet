@@ -1,7 +1,7 @@
 <div class="user-bet-container cart-resize">
-  <span id="shoppingCart" class="glyphicon glyphicon-shopping-cart cart" ></span>
+  <span id="shoppingCart" class="glyphicon glyphicon-shopping-cart cart" onclick="showBuys()"></span>
   <div id="buyContainer" hidden>
-    <span id="chevronDown" class="glyphicon glyphicon-chevron-down hide-down"></span>
+    <span id="chevronDown" class="glyphicon glyphicon-chevron-down hide-down" onclick="hideBuys()"></span>
     <%= form_tag("/complete_bets", method: "post", id: "completeBetForm", :class => 'complete-bet-form') do %>
       <h1> Your bet! </h1>
       <input type="number" name="completeBet[amount]"/>

@@ -16,9 +16,13 @@ function showSelectedMenu(selectedMenu) {
   var logIn = $('#logInMenu');
   var signUp = $('#signUpMenu');
   if (selectedMenu == '#logInMenu') {
-    signUp.fadeOut(200, () => logIn.fadeIn());
+    signUp.fadeOut(200, function() {
+      logIn.fadeIn();
+    });
   }else {
-    logIn.fadeOut(200, () => signUp.fadeIn());
+    logIn.fadeOut(200, function() {
+      signUp.fadeIn();
+    });
   }
 }
 
@@ -123,5 +127,7 @@ function showBuys() {
   $('#shoppingCart').hide();
   $('.user-bet-container').addClass('full-bet-size');
   $('.user-bet-container').removeClass('cart-resize');
-  setTimeout(() => $('#buyContainer').show(), 200);
+  setTimeout(function(){
+    $('#buyContainer').show()
+  }, 200);
 }

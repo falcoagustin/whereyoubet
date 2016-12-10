@@ -9,6 +9,8 @@
 
 .best-five-bets,
 .hot-five-bets {
+  max-height: 665px;
+  overflow-y: scroll;
   padding: 1%;
 
   h1 {

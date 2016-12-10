@@ -9,4 +9,17 @@ class CompleteBet < ActiveRecord::Base
     UserMailer.finished_bet_email(self.first_bet.user, self).deliver_later
   end
 
+  def has_any_bets
+    return (!self.first_bet.nil? or
+      !self.second_bet.nil? or
+      !self.third_bet.nil?)
+  end
+
+  def user_won_complete_bet
+    if self.has_any_bets
+      return (self.first_bet.user_won_bet or
+        self.second_bet.user_won_bet or
+        self.third_bet.user_won_bet)
+    end
+  end
 end

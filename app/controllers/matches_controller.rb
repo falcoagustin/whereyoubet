@@ -21,6 +21,13 @@ class MatchesController < ApplicationController
     redirect_to :back
   end
 
+  def accept
+    @match = Match.find(params[:id])
+    @match.accepted = !@match.accepted
+    @match.save
+    redirect_to :back
+  end
+
   def import
     begin
       Match.delay.import(params[:file])

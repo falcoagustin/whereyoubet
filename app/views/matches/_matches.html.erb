@@ -8,20 +8,29 @@
     <li class="header cell-small">Local Team</li>
     <li class="header cell-small">Visitor Team</li>
     <li class="header cell-tiny"></li>
+    <li class="header cell-tiny"></li>
   </ul>
   <% @matches.each do |match| %>
-    <div class="model-row">
-      <span class="cell-small"> <%= match.time.strftime("%m-%d-%Y %H:%M:%S")	 %> </span>
+    <div <% if match.accepted %> class="model-row accepted" <% else %> class="model-row" <%end%> >
+      <span class="cell-small"> <%= match.time.strftime("%m-%d-%Y %H:%M:%S") %> </span>
       <label class="cell-small"> <%= match.local_ratio %> </label>
       <label class="cell-small"> <%= match.visitor_ratio %> </label>
       <label class="cell-tiny"> <%= match.tie_ratio %> </label>
       <label class="cell-small"> <%= match.local_team.name %> </label>
       <label class="cell-small"> <%= match.visitor_team.name %> </label>
-      <a class="cell-tiny"
-         data-confirm="Are you sure?"
-         rel="nofollow"
-         data-method="delete"
-         href="/matches/<%=match.id%>"><span class="glyphicon glyphicon-trash"></span></a>
+      <div class="cell-tiny">
+        <a data-method="post" href="/matches/<%=match.id%>/accept">
+          <span class="glyphicon glyphicon-font"></span>
+        </a>
+      </div>
+      <div class="cell-tiny">
+        <a
+           data-confirm="Are you sure?"
+           rel="nofollow"
+           data-method="delete"
+           href="/matches/<%=match.id%>"><span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </div>
     </div>
   <% end %>
 </div>

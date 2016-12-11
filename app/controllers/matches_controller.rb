@@ -8,7 +8,7 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(team_params)
+    @match = Match.new(match_params)
     if @match.save
       redirect_to :back
     end
@@ -21,10 +21,13 @@ class MatchesController < ApplicationController
     redirect_to :back
   end
 
-  def accept
+  def edit
     @match = Match.find(params[:id])
-    @match.accepted = !@match.accepted
-    @match.save
+  end
+
+  def update
+    @match = Match.find(params[:id])
+    @match.update(match_params)
     redirect_to :back
   end
 
@@ -38,9 +41,9 @@ class MatchesController < ApplicationController
   end
 
   private
-    def team_params
+    def match_params
       params.require(:match).permit(:time, :local_ratio, :visitor_ratio,
-        :tie_ratio, :local_team_id, :visitor_team_id)
+        :tie_ratio, :local_team_id, :visitor_team_id, :accepted)
     end
 
 end

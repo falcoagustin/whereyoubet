@@ -9,9 +9,10 @@
     <li class="header cell-small">Visitor Team</li>
     <li class="header cell-tiny"></li>
     <li class="header cell-tiny"></li>
+    <li class="header cell-tiny"></li>
   </ul>
   <% @matches.each do |match| %>
-    <div <% if match.accepted %> class="model-row accepted" <% else %> class="model-row" <%end%> >
+    <div class="model-row" class="model-row">
       <span class="cell-small"> <%= match.time.strftime("%m-%d-%Y %H:%M:%S") %> </span>
       <label class="cell-small"> <%= match.local_ratio %> </label>
       <label class="cell-small"> <%= match.visitor_ratio %> </label>
@@ -19,8 +20,8 @@
       <label class="cell-small"> <%= match.local_team.name %> </label>
       <label class="cell-small"> <%= match.visitor_team.name %> </label>
       <div class="cell-tiny">
-        <a data-method="post" href="/matches/<%=match.id%>/accept">
-          <span class="glyphicon glyphicon-exclamation-sign"></span>
+        <a  href="/matches/<%=match.id%>/edit">
+          <span class="glyphicon glyphicon-pencil"></span>
         </a>
       </div>
       <div class="cell-tiny">
@@ -31,6 +32,11 @@
            href="/matches/<%=match.id%>"><span class="glyphicon glyphicon-trash"></span>
         </a>
       </div>
+      <% if match.accepted %>
+        <div class="cell-tiny"><span class="glyphicon glyphicon-ok" title="Accepted"></span></div>
+      <% else %>
+        <div class="cell-tiny"><span class="glyphicon glyphicon-remove" title="Not Accepted"></span></div>
+      <% end %>
     </div>
   <% end %>
 </div>

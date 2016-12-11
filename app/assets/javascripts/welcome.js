@@ -32,7 +32,6 @@ function goToHome() {
 
 function toggleBet(matchId) {
   var length = betIds.length;
-  var matchId = matchId;
   var index = betIds.indexOf(matchId);
   if (length == 3 && index == -1) return;
   if (length == 3 && index != -1) {

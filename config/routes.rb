@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   get '/users/edit_password', to: 'users#edit_password'
   get '/users/bet_history', to: 'users#bet_history'
   get '/allbets', to: 'welcome#all_bets'
+  post '/matches/:id/accept', to: 'matches#accept'
+
   resources :users
+
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

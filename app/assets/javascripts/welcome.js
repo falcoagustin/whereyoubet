@@ -32,7 +32,6 @@ function goToHome() {
 
 function toggleBet(matchId) {
   var length = betIds.length;
-  var matchId = matchId;
   var index = betIds.indexOf(matchId);
   if (length == 3 && index == -1) return;
   if (length == 3 && index != -1) {
@@ -62,6 +61,7 @@ function buildMatchFromHtml(matchId) {
   var visitor_ratio = $(modelDOMelem[2]).data('visitor-ratio');
   var tie_ratio = $(modelDOMelem[3]).data('tie-ratio');
   var betOn = parseBetValue(selectDOM[0].value);
+  var betOnValue = selectDOM[0].value;
 
   return {
     id: matchId,
@@ -69,7 +69,8 @@ function buildMatchFromHtml(matchId) {
     local_ratio: local_ratio,
     visitor_ratio: visitor_ratio,
     tie_ratio: tie_ratio,
-    betOn: betOn
+    betOn: betOn,
+    betOnValue: betOnValue
   }
 }
 
@@ -86,6 +87,7 @@ function addMatch(match) {
     '<label>' + match.visitor_ratio + '</label>' +
     '<label>' + match.tie_ratio + '</label>' +
     '<label>' + match.betOn + '</label>' +
+    '<input type="hidden" name="completeBet[select' + betIds.length + ']" value="' + match.betOnValue + '"/>' +
     '<label>' + match.name + '</label></div>'
   )
 }

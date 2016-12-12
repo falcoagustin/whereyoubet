@@ -6,11 +6,17 @@
     <ul>
       <% if user_signed_in? %>
         <li><a class="bm-nav-option" href="/"> Home </a> </li>
-        <% if current_user.is_admin_user %>
-          <li> <a href="/teams" class="bm-nav-option"> Teams </a> </li>
-          <li> <a href="/matches" class="bm-nav-option"> Matches </a> </li>
-        <% end %>
         <li><a href="/allbets" class="bm-nav-option">All bets!</a></li>
+        <% if current_user.is_admin_user %>
+          <div class="dropdown bm-nav-option">
+            <li> <a id="accounts" class="bm-nav-option"> Administrate </a></li>
+            <div class="dropdown-content">
+              <div><a href="/teams" class="dropdown-item"> Teams </a></div>
+              <div><a href="/matches" class="dropdown-item"> Matches </a> </div>
+              <div><a href="/match_results" class="dropdown-item"> Results </a> </div>
+            </div>
+          </div>
+        <% end %>
         <div class="dropdown bm-nav-option">
           <li>
             <a id="accounts" class="bm-nav-option"> <%= current_user.email %> </a>

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def bet_history
-    @bets = Bet.where(user: current_user).order(executed: :desc)
+    @complete_bets = CompleteBet.where(user: current_user)
   end
 
   def update

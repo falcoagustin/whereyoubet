@@ -4,17 +4,19 @@ class Bet < ActiveRecord::Base
   validates :match_id, presence: true
 
   def is_result_available
-    return self.match.match_result.nil?
+    return !self.match.match_result.nil?
   end
 
   def user_won_bet
     if self.is_result_available
-      bet_match_mapper = {
+      bet_match_map = {
         1 => self.bet_on_local,
         2 => self.bet_on_visitor,
         3 => self.bet_on_tie
       }
-      return bet_match_mapper[self.match.winner]
+      return bet_match_map[self.match.match_result.winner]
+    else
+      return false
     end
   end
 end

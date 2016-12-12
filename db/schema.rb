@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129195129) do
+ActiveRecord::Schema.define(version: 20161211225525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20161129195129) do
     t.integer  "second_bet_id"
     t.integer  "third_bet_id"
     t.float    "amount"
+    t.integer  "user_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -71,9 +72,10 @@ ActiveRecord::Schema.define(version: 20161129195129) do
 
   create_table "match_results", force: :cascade do |t|
     t.integer  "winner"
-    t.integer  "match_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "match_id",                   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "accepted",   default: false, null: false
   end
 
   add_index "match_results", ["match_id"], name: "index_match_results_on_match_id", using: :btree
@@ -85,8 +87,9 @@ ActiveRecord::Schema.define(version: 20161129195129) do
     t.float    "tie_ratio"
     t.integer  "local_team_id"
     t.integer  "visitor_team_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "accepted",        default: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -130,6 +133,7 @@ ActiveRecord::Schema.define(version: 20161129195129) do
   add_foreign_key "complete_bets", "bets", column: "first_bet_id"
   add_foreign_key "complete_bets", "bets", column: "second_bet_id"
   add_foreign_key "complete_bets", "bets", column: "third_bet_id"
+  add_foreign_key "complete_bets", "users"
   add_foreign_key "match_results", "matches"
   add_foreign_key "matches", "teams", column: "local_team_id"
   add_foreign_key "matches", "teams", column: "visitor_team_id"

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include UsersHelper
 
-  before_action :user_signed_in?, :authenticate_user!, :restrict_user_access
+  before_action :user_signed_in?, :authenticate_user!
 
   def edit_profile
   end

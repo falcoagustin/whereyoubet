@@ -9,7 +9,10 @@ class User < ActiveRecord::Base
   after_create :send_email
 
   def send_email
-    UserMailer.welcome_email(self).deliver_later
+    begin
+      UserMailer.welcome_email(self).deliver_later
+    rescue
+    end
   end
 
   def is_admin_user

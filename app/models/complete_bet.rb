@@ -7,7 +7,10 @@ class CompleteBet < ActiveRecord::Base
   after_create :send_email
 
   def send_email
-    UserMailer.finished_bet_email(self.first_bet.user, self).deliver_later
+    begin
+      UserMailer.finished_bet_email(self.first_bet.user, self).deliver_later
+    rescue
+    end
   end
 
   def user_won_complete_bet

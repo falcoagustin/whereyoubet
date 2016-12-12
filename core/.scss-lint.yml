@@ -1,5 +1,0 @@
-linters:
-    NestingDepth:
-        enabled: False
-    SelectorDepth:
-        enabled: False

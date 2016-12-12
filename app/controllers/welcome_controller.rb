@@ -9,6 +9,6 @@ class WelcomeController < ApplicationController
   end
 
   def all_bets
-    @all_matches = Match.all
+    @all_matches = Match.where(accepted: true)
   end
 end

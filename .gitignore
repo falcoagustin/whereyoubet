@@ -20,3 +20,6 @@ public/*
 *.csv
 Gemfile.lock
 *.rdb
+*.log
+core/tmp/*
+

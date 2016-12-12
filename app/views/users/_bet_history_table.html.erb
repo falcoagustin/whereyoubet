@@ -1,0 +1,30 @@
+<div class="bm-panel">
+  <div class="best-five-bets">
+    <h1> Bet history </h1>
+    <div class="best-five-content">
+      <div class="best-five-header">
+        <ul>
+          <li class="cell-tiny"><label> Time </label></li>
+          <li class="cell-small"><label> Local Rate </label></li>
+          <li class="cell-small"><label> Visitor Rate </label></li>
+          <li class="cell-small"><label> Tie Rate </label></li>
+          <li class="medium-row"><label> Match </label></li>
+          <li><label> Amount </label></li>
+          <li class="cell-tiny"><label> Your Bet </label></li>
+        </ul>
+      </div>
+      <% @complete_bets.each do |cb| %>
+        <% if !cb.first_bet.nil? %>
+          <%= render 'matches/complete_bet', bet_was_won: cb.user_won_complete_bet, bet: cb.first_bet %>
+        <% end %>
+        <% if !cb.second_bet.nil? %>
+          <%= render 'matches/complete_bet', bet_was_won: cb.user_won_complete_bet, bet: cb.second_bet %>
+        <% end %>
+        <% if !cb.third_bet.nil? %>
+          <%= render 'matches/complete_bet', bet_was_won: cb.user_won_complete_bet, bet: cb.third_bet %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="best-five-content">
+    <ul class="best-five-header">
+      <li class="double-row"><label> Match </label></li>
+      <li><label> Local Rate </label></li>
+      <li><label> Visitor Rate </label></li>
+      <li><label> Tie Rate </label></li>
+      <li><label> Time </label></li>
+      <li><label> Your bet </label></li>
+    </ul>
+  <% matches.each do |match| %>
+    <div class="best-five-row clickable" onclick="toggleBet(<%=match.id%>)" data-id="<%= match.id %>" id="match<%= match.id %>">
+      <div class="double-row" data-name="<%= match.local_team.name %> vs <%= match.visitor_team.name %>">
+        <span> <%= match.local_team.name %> </span>
+        <label> vs </label>
+        <span> <%= match.visitor_team.name %> </span>
+      </div>
+      <div data-local-ratio="<%= match.local_ratio %>"><span> <%= match.local_ratio %> </span></div>
+      <div data-visitor-ratio="<%= match.visitor_ratio %>"><span> <%= match.visitor_ratio %> </span></div>
+      <div data-tie-ratio="<%= match.tie_ratio %>"><span> <%= match.tie_ratio %> </span></div>
+      <div data-time="<%= match.time %>"><span> <%= match.time.strftime('%m-%d %H:%M:%S') %></span></div>
+      <select>
+        <option value="bet_on_local"> Local </option>
+        <option value="bet_on_visitor"> Visitor </option>
+        <option value="bet_on_tie"> Tie </option>
+      </select>
+    </div>
+  <% end %>
+</div>

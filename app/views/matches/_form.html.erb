@@ -1,0 +1,32 @@
+<div class="model-create">
+  <h3 class="bm-title"> Create new match </h3>
+  <%= form_for :match do |m| %>
+    <p>
+      <%= m.label :match_date, :class => "bm-label" %>
+      <%= m.datetime_local_field :time, :class => "bm-input" %>
+    </p>
+    <p>
+      <%= m.label :local_ratio, :class =>"bm-label" %>
+      <%= m.number_field :local_ratio, :class => "bm-input", step: :any %>
+    </p>
+    <p>
+      <%= m.label :visitor_ratio, :class =>"bm-label" %>
+      <%= m.number_field :visitor_ratio, :class => "bm-input", step: :any %>
+    </p>
+    <p>
+      <%= m.label :tie_ratio, :class =>"bm-label" %>
+      <%= m.number_field :tie_ratio, :class => "bm-input", step: :any %>
+    </p>
+    <p>
+      <%= m.label :local_team, :class =>"bm-label" %>
+      <%= m.number_field :local_team_id, :class => "bm-input" %>
+    </p>
+    <p>
+      <%= m.label :visitor_team, :class =>"bm-label" %>
+      <%= m.number_field :visitor_team_id, :class => "bm-input" %>
+    </p>
+    <!-- <button type="submit">Submit</button> -->
+    <%= m.submit 'Save match', :class => 'bm-button'%>
+  <% end %>
+  <%= render 'csv_upload' %>
+</div>

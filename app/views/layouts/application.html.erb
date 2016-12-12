@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BetMatch</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Ubuntu" rel="stylesheet">
+</head>
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
+<%= yield %>
+
+</html>

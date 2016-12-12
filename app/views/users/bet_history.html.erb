@@ -1,0 +1,17 @@
+<html>
+  <header>
+    <meta name="viewport" content="width=device-width">
+  </header>
+  <body>
+    <%= render 'welcome/menu_bar', :in_profile => true %>
+    <% if !@complete_bets.empty? %>
+      <%= render 'bet_history_table' %>
+    <% else %>
+      <div class="bm-panel">
+        <div class="best-five-bets">
+          <h1> No history available! </h1>
+        </div>
+      </div>
+    <% end %>
+  </body>
+</html>

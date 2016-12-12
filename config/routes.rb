@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :matches do
     collection {post :import}
   end
+  resources :match_results
 
   get '/users/edit_profile',  to: 'users#edit_profile'
   get '/users/edit_password', to: 'users#edit_password'

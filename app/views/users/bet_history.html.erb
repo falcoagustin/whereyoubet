@@ -4,7 +4,7 @@
   </header>
   <body>
     <%= render 'welcome/menu_bar', :in_profile => true %>
-    <% if !@bets.empty? %>
+    <% if !@complete_bets.empty? %>
       <%= render 'bet_history_table' %>
     <% else %>
       <div class="bm-panel">

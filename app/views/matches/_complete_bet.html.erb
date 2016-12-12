@@ -1,0 +1,15 @@
+<div class="best-five-row <% if bet_was_won %> row-active <% end %>">
+  <div class="cell-tiny"><span> <%= bet.executed.strftime('%Y-%m-%d') %> </span></div>
+  <div class="cell-small"><span> <%= bet.match.local_ratio %> </span></div>
+  <div class="cell-small"><span> <%= bet.match.visitor_ratio %> </span></div>
+  <div class="cell-small"><span> <%= bet.match.tie_ratio %> </span></div>
+  <div class="medium-row">
+    <span> <%= bet.match.local_team.name %> </span>
+    <label> vs </label>
+    <span> <%= bet.match.visitor_team.name %> </span>
+  </div>
+  <div><span> <%= bet.amount %></span></div>
+  <% if bet.bet_on_local %> <div class="cell-tiny"><span> Local </span></div> <% end %>
+  <% if bet.bet_on_visitor %> <div class="cell-tiny"><span> Visitor </span></div> <% end %>
+  <% if bet.bet_on_tie %> <div class="cell-tiny"><span> Tie </span></div> <% end %>
+</div>

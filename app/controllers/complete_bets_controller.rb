@@ -17,7 +17,8 @@ class CompleteBetsController < ApplicationController
       :first_bet => @first_bet,
       :second_bet => @second_bet,
       :third_bet => @third_bet,
-      :amount => amount
+      :amount => amount,
+      :user_id => current_user.id
     )
     if @complete_bet.save
       redirect_to :back

@@ -10,7 +10,10 @@ class CompleteBet < ActiveRecord::Base
     begin
       UserMailer.finished_bet_email(self.first_bet.user, self).deliver_later
     rescue
+<<<<<<< HEAD
+=======
       puts 'Some error has occurred'
+>>>>>>> dev
     end
   end
 

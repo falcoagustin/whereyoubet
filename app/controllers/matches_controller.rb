@@ -7,6 +7,9 @@ class MatchesController < ApplicationController
     @matches = Match.all
   end
 
+  def service
+  end
+
   def create
     @match = Match.new(match_params)
     if @match.save

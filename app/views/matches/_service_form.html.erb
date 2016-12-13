@@ -1,0 +1,16 @@
+<div class="model-edit">
+    <%= form_tag("/service/events", method: "post", id: "service" ) do %>
+      <h1> Service </h1>
+      <div class="log-row">
+        <label> League Id </label>
+        <input type="number" name="service[league_id]" min="0" />
+      </div>
+      <div class="log-row">
+        <%= date_field :service, :from %>
+      </div>
+      <div class="log-row">
+        <%= date_field :service, :to %>
+      </div>
+      <button type="submit" class="bm-button"> Call MS ! </button>
+    <% end %>
+</div>

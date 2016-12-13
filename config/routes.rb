@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get '/users/edit_password', to: 'users#edit_password'
   get '/users/bet_history', to: 'users#bet_history'
   get '/allbets', to: 'welcome#all_bets'
+  get '/service', to: 'matches#service'
+
+  post '/service/events', to: 'service#call_events_service'
   post '/matches/:id/accept', to: 'matches#accept'
 
   resources :users

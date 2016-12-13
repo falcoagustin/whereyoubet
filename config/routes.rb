@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/service', to: 'matches#service'
 
   post '/service/events', to: 'service#call_events_service'
+  post '/service/match_results', to: 'service#match_results'
   post '/matches/:id/accept', to: 'matches#accept'
 
   resources :users

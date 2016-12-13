@@ -14,6 +14,10 @@ class ServiceController < ApplicationController
     redirect_to :back
   end
 
+  def match_results
+
+  end
+
   private
     def faraday_connection(url)
       conn = Faraday.new(:url => url) do |faraday|

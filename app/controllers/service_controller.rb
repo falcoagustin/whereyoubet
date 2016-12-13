@@ -30,7 +30,7 @@ class ServiceController < ApplicationController
         byebug
         local = Team.find_or_create_by(:name => match['local_team_name'])
         visitor = Team.find_or_create_by(:name => match['visitor_team_name'])
-        m = Match.new(:time => match['schedule'], :local_team => local, :visitor_team => visitor)
+        m = Match.new(:api_id => match['api_id'], :time => match['schedule'], :local_team => local, :visitor_team => visitor)
         m.save
       end
     end

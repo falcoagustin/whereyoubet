@@ -15,8 +15,12 @@ class ServiceController < ApplicationController
   end
 
   def match_results
-
+    match_id = params[:match_id]
+    winner = params[:winner]
+    result = MatchResult.new(:winner => winner, :match_id => match_id)
+    result.save
   end
+
 
   private
     def faraday_connection(url)

@@ -4,8 +4,21 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+won_complete_bet:
+  first_bet: bet_on_local
+  amount: 1.0
+
+not_won_complete_bet:
+  first_bet: bet_on_visitor
+  amount: 2.9
+
+lost_two_bet_complete_bet:
+  first_bet: bet_on_visitor
+  second_bet: bet_on_local
+  amount: 4.0
+
+lost_three_bet_complete_bet:
+  first_bet: bet_on_visitor
+  second_bet: bet_on_local
+  third_bet: bet_on_tie
+  amount: 4.0

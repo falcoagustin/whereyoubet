@@ -1,13 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+bet_on_local:
   executed: 2016-09-19 21:37:56
-  user_id: 
+  user_id: 1
   amount: 1.5
-  match_id: 
+  match: one
+  bet_on_local: true
 
-two:
+bet_on_visitor:
   executed: 2016-09-19 21:37:56
-  user_id: 
+  user_id: 2
   amount: 1.5
-  match_id: 
+  match: two
+  bet_on_visitor: true
+
+bet_on_tie:
+  executed: 2016-09-19 21:37:56
+  user_id: 2
+  amount: 1.5
+  match: two
+  bet_on_tie: true

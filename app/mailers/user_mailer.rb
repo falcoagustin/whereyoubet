@@ -2,6 +2,7 @@ class UserMailer < ApplicationMailer
   default from: 'notifications@betmatch.com'
   include Sidekiq::Worker
 
+  ERROR_MESSAGE = 'Some error has occured.'
   def welcome_email(user)
     @user = user
     @url  = 'https://warm-brushlands-52658.herokuapp.com/'

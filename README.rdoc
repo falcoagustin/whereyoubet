@@ -1,23 +1,28 @@
-== DISCLAIMER
-
-This application was made for fun to try out RoR framework. I am no designer and
-used plain and simple scss, no libs for styles.
-
 == README
 
-* Using Ruby version: 2.3.1
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-* Using Rails version: 4.2.6
+Things you may want to cover:
 
-* Configuration:
+* Ruby version
 
-    - To make the app work, run bundle install to install gems.
-    - To make the smtp work and send e-mails every time you create
-      a user or bet, please fill the development.rb email with the
-      email you have and password you have.
-    - To connect to a database, please specify username and password
-      in database.yml configuration file, change the connector as in
-      case you want as its currently for PSQL.
-    - Run migrations to load superuser with rake db:migrate
-        => email: admin@admin.com
-        => password: admin1234
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

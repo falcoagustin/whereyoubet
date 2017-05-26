@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     begin
       UserMailer.welcome_email(self).deliver_later
     rescue
-      puts 'Some error have occurred'
+      return UserMailer::ERROR_MESSAGE
     end
   end
 

@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  winner: MyString
+  winner: 1
+  match: one
 
 two:
-  winner: MyString
+  winner: 1
+  match: two
+
